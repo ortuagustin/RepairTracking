@@ -21,7 +21,7 @@ es:
     home_link_label: "Inicio"
     login_link_label: "Iniciar Sesión"
     logout_link_label: "Cerrar Sesión"
-    welcome: "Bienvenido, %{username}"
+    welcome: "Bienvenido, %{email}"
     go_to: "Ir a"
     change_locale: "Idioma (español)"
     notifications:
@@ -31,7 +31,7 @@ es:
   login_form:
     title: "Login"
     subtitle: "Inicia sesión para continuar."
-    username_field: "Usuario"
+    email_field: "E-Mail"
     password_field: "Contraseña"
     submit: "Ingresar"
   activerecord:

@@ -10,13 +10,13 @@ en:
     home_link_label: "Home"
     login_link_label: "Log In"
     logout_link_label: "Log Out"
-    welcome: "Welcome, %{username}"
+    welcome: "Welcome, %{email}"
     go_to: "Go to"
     change_locale: "Language (english)"
   login_form:
     title: "Login"
     subtitle: "Please login to proceed."
-    username_field: "Username"
+    email_field: "E-Mail"
     password_field: "Password"
     submit: "Log In"
   activerecord:
