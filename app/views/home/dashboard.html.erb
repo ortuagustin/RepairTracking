@@ -1,14 +1,1 @@
-<div class="navbar-end">
-  <% unless user_signed_in? %>
-    <%= link_to (t 'navigation.login_link_label'), new_user_session_path %>
-  <% else %>
-    <div class="navbar-item">
-      <p> <%= t 'navigation.welcome', email: current_user.email %></p>
-    </div>
-
-    <%= link_to (t 'navigation.logout_link_label'), destroy_user_session_path, :method => 'delete' %>
-  <% end %>
-</div>
-</div>
-
 <h3>Modificar el archivo "/app/views/home/dashboard.html.erb"</h3>
