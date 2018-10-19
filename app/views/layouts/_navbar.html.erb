@@ -1,32 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
+    <button class="btn btn-outline-dark">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <img
       class="d-inline-block align-top"
-      src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30"
+      src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="36" height="36"
     >
       Repair Tracking
   </a>
 
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarText"
-    aria-controls="navbarText"
-    aria-expanded="false"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarText">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto"></ul>
 
     <% if user_signed_in? %>
-      <span class="navbar-text">
-        <%= t 'navigation.welcome', email: current_user.email %>
-      </span>
+      <span>
+        <span class="navbar-text">
+          <div class="col">
+            <%= t 'navigation.welcome', email: current_user.email %>
+          </div>
+        </span>
 
-      <%= link_to (t 'navigation.logout_link_label'), destroy_user_session_path, method: "delete", class: "nav-link" %>
+        <div class="col text-center">
+          <%= link_to (t 'navigation.logout_link_label'), destroy_user_session_path, method: "delete", class: "nav-link" %>
+        </div>
+      </span>
     <% end %>
   </div>
 </nav>
