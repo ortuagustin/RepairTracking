@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      class="d-inline-block align-top"
+      src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30"
+    >
+      Repair Tracking
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto"></ul>
+
+    <% if user_signed_in? %>
+      <span class="navbar-text">
+        <%= t 'navigation.welcome', email: current_user.email %>
+      </span>
+
+      <%= link_to (t 'navigation.logout_link_label'), destroy_user_session_path, method: "delete", class: "nav-link" %>
+    <% end %>
+  </div>
+</nav>
