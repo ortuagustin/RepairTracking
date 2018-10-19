@@ -31,9 +31,14 @@ es:
   login_form:
     title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."
-    email_field: "E-Mail"
+    email_field: "Usuario"
     password_field: "Contraseña"
     submit: "Iniciar Sesión"
+  repair_query_form:
+    title: "Soy Cliente"
+    subtitle: "Consultá el estado de tu reparación"
+    input_field: "Ingresá tu código"
+    submit: "Consutlar"
   activerecord:
     errors:
       format: "%{attribute} %{message}"

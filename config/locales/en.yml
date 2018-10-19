@@ -19,6 +19,11 @@ en:
     email_field: "E-Mail"
     password_field: "Password"
     submit: "Log In"
+  repair_query_form:
+    title: "I'm Customer"
+    subtitle: "Check the state of my repair"
+    input_field: "Repair Code"
+    submit: "Query"
   activerecord:
     errors:
       messages:
