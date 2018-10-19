@@ -29,11 +29,11 @@ es:
       one: "1"
       other: "%{count}"
   login_form:
-    title: "Login"
+    title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."
     email_field: "E-Mail"
     password_field: "Contraseña"
-    submit: "Ingresar"
+    submit: "Iniciar Sesión"
   activerecord:
     errors:
       format: "%{attribute} %{message}"
