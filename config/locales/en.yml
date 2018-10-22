@@ -24,6 +24,11 @@ en:
     subtitle: "Check the state of my repair"
     input_field: "Repair Code"
     submit: "Query"
+  customers:
+    flash:
+      created: "Customer successfully created."
+      updated: "Customer successfully updated."
+      deleted: "Customer successfully deleted."
   activerecord:
     errors:
       messages:

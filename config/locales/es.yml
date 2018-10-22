@@ -39,7 +39,24 @@ es:
     subtitle: "Consultá el estado de tu reparación"
     input_field: "Ingresá tu código"
     submit: "Consutlar"
+  customers:
+    flash:
+      created: "Cliente creado."
+      updated: "Cliente actualizado."
+      deleted: "Cliente eliminado."
   activerecord:
+    models:
+      customer:
+        one: "Cliente"
+        other: "Clientess"
+    attributes:
+      customer:
+        id: "N°"
+        name: "Nombre"
+        surname: "Apellido"
+        email: "Email"
+        phone: "Teléfono"
+        notes: "Observaciones"
     errors:
       format: "%{attribute} %{message}"
       messages:

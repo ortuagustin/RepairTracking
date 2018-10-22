@@ -24,7 +24,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to @customer, notice: 'Customer was successfully created.'
+      redirect_to @customer, notice: (t 'customers.flash.created')
     else
       render :new
     end
@@ -33,7 +33,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/:id
   def update
     if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Customer was successfully updated.'
+      redirect_to @customer, notice: (t 'customers.flash.updated')
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/:id
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: 'Customer was successfully destroyed.'
+    redirect_to customers_url, notice: (t 'customers.flash.deleted')
   end
 private
   def set_customer
