@@ -17,8 +17,10 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
 * Se utilizó [**Ruby on Rails**](https://rubyonrails.org/) 5.2.1 como framework de desarrollo
 * La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org)
 * **Dependencias**: Como en la mayoria de los proyectos Rails, son gestionadas usando [Bundler](https://github.com/bundler/bundler). Las mas destacadas son:
-  - [Rails](https://github.com/rails/rails/)
+  - [Rails](https://github.com/rails/rails)
+  - [Bootstrap 4.1](https://getbootstrap.com)
   - [Devise](https://github.com/plataformatec/devise)
+  - [Validates](https://github.com/kaize/validates)
 
 1. Clonar el repositorio:
 
