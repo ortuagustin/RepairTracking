@@ -60,7 +60,8 @@ es:
     errors:
       format: "%{attribute} %{message}"
       messages:
-        invalid_email: "'%{value}' no es un %{attribute} valido"
+        invalid_email: "'%{value}' no es un %{attribute} válido"
+        invalid_phone: "'%{value}' no es un %{attribute} válido"
         accepted: "debe ser aceptado"
         blank: "no puede estar en blanco"
         present: "debe estar en blanco"

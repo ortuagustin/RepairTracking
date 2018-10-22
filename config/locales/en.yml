@@ -33,6 +33,7 @@ en:
     errors:
       messages:
         invalid_email: "'%{value}' is not a valid %{attribute}"
+        invalid_phone: "'%{value}' is not a valid %{attribute}"
   datetime:
     distance_in_words:
       about_x_hours:
