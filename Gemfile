@@ -68,3 +68,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.5"
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+gem 'validates'
