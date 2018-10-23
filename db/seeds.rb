@@ -1,6 +1,7 @@
 require 'faker'
 
 User.destroy_all
+Artifact.destroy_all
 
 User.create(email: 'ortu.agustin@gmail.com', password: '1234')
 User.create(email: 'test@test.com', password: '1234')
@@ -13,3 +14,8 @@ ActiveRecord::Base.transaction do
                     email: Faker::Internet.unique.email)
   end
 end
+
+Artifact.create(name: 'Heladera')
+Artifact.create(name: 'Televisor')
+Artifact.create(name: 'Lavarropas')
+Artifact.create(name: 'Microondas')

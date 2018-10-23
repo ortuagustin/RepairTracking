@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_160858) do
+ActiveRecord::Schema.define(version: 2018_10_23_184201) do
+
+  create_table "artifacts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -20,6 +26,16 @@ ActiveRecord::Schema.define(version: 2018_10_22_160858) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "repairs", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "artifact_id"
+    t.integer "estimated_days"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artifact_id"], name: "index_repairs_on_artifact_id"
+    t.index ["customer_id"], name: "index_repairs_on_customer_id"
   end
 
   create_table "users", force: :cascade do |t|
