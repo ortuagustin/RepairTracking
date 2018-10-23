@@ -1,5 +1,5 @@
-import Vue from 'vue/dist/vue.esm';
 import TurbolinksAdapter from 'vue-turbolinks';
+import Vue from 'vue/dist/vue.esm';
 import VueSweetalert2 from 'vue-sweetalert2';
 import axios from 'axios';
 import DeleteButton from '../DeleteButton.vue';
