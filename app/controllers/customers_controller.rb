@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/:id
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: (t 'customers.flash.deleted')
+    redirect_to customers_url, notice: (t 'customers.flash.deleted'), status: 303
   end
 private
   def set_customer

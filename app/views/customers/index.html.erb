@@ -34,7 +34,7 @@
 
         <td style="width: 5%">
           <delete-button
-            url="<%= customer_url(customer) %>"
+            url="<%= customer_path(customer) %>"
             title="<%= t 'customers.actions.delete.title' %>"
             text="<%= t 'customers.actions.delete.text', name: customer.name, surname: customer.surname %>"
             type="<%= 'warning' %>"

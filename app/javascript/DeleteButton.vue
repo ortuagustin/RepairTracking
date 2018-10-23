@@ -21,7 +21,7 @@ export default {
         cancelButtonText: this.cancelButton,
       }).then(result => {
         if (result.value) {
-          axios.delete(this.url)
+          axios.delete(this.url).then((data) => location.reload(true))
         }
       });
     }
