@@ -1,0 +1,46 @@
+<%= form_with(model: repair, local: true) do |form| %>
+  <% if repair.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(repair.errors.count, "error") %> prohibited this repair from being saved:</h2>
+
+      <ul>
+      <% repair.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= form.label :customer_id, (t 'repairs_form.customer_field'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-5">
+      <%= form.select :customer_id, @customers, {}, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :artifact_id, (t 'repairs_form.artifact_field'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-5">
+      <%= form.select :artifact_id, @artifacts, {}, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :estimated_days, (t 'repairs_form.estimated_days_field'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-2">
+      <%= form.number_field :estimated_days, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="text-center mr-5 pr-5 mt-5">
+    <button class="btn btn-primary mr-2" type="submit">
+      <span> <%= (t 'repairs_form.submit') %> </span>
+      <i class="fas fa-save"></i>
+    </button>
+
+    <a class="btn btn-outline-danger" href="<%= customers_path %>">
+      <span> <%= (t 'repairs_form.cancel') %> </span>
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+<% end %>

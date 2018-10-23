@@ -31,6 +31,16 @@ es:
       zero: ""
       one: "1"
       other: "%{count}"
+  repairs_form:
+    title: "Registrar Reparación"
+    customer_field: "Cliente"
+    artifact_field: "Artefacto"
+    estimated_days_field: "Cant. días estimados"
+    submit: "Guardar"
+    cancel: "Descartar"
+  repairs:
+    flash:
+      created: "Reparación creada"
   login_form:
     title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."
