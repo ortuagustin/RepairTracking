@@ -14,5 +14,5 @@ document.addEventListener('turbolinks:load', () => {
 
   window.vueapp = new Vue({
     components: { DeleteButton }
-  }).$mount('#root')
+  }).$mount('#app')
 });
