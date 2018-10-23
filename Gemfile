@@ -70,3 +70,5 @@ gem "devise", "~> 4.5"
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 gem 'validates'
 gem "faker"
+gem "kaminari"
+gem 'bootstrap4-kaminari-views'

@@ -22,6 +22,8 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
   - [Devise](https://github.com/plataformatec/devise)
   - [Validates](https://github.com/kaize/validates)
   - [Faker](https://github.com/stympy/faker)
+  - [Kaminari](https://github.com/kaminari/kaminari)
+  - [FontAwesome](https://fontawesome.com/)
 
 1. Clonar el repositorio:
 
