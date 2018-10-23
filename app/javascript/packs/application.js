@@ -9,7 +9,7 @@ Vue.use(VueSweetalert2);
 
 window.axios = axios;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   window.axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
   const app = new Vue({
@@ -17,4 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     components: { DeleteButton }
   })
-})
+});
