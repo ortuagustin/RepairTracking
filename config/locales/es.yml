@@ -1,4 +1,7 @@
 es:
+  view:
+    index:
+      actions: "Acciones"
   not_authorized: "No tenés permiso para realizar esta acción."
   helpers:
     page_entries_info:
@@ -40,6 +43,9 @@ es:
     input_field: "Ingresá tu código"
     submit: "Consutlar"
   customers:
+    index:
+      title: "Clientes"
+      new: "Crear Cliente"
     flash:
       created: "Cliente creado."
       updated: "Cliente actualizado."
@@ -48,7 +54,7 @@ es:
     models:
       customer:
         one: "Cliente"
-        other: "Clientess"
+        other: "Clientes"
     attributes:
       customer:
         id: "N°"

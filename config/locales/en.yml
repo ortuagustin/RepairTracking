@@ -1,4 +1,7 @@
 en:
+  view:
+    index:
+      actions: "Actions"
   not_authorized: "You are not authorized to perform this action."
   helpers:
     page_entries_info:
@@ -29,6 +32,9 @@ en:
       created: "Customer successfully created."
       updated: "Customer successfully updated."
       deleted: "Customer successfully deleted."
+    index:
+      title: "Customers"
+      new: "New Customer"
   activerecord:
     errors:
       messages:
