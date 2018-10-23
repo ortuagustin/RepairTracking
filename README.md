@@ -21,6 +21,7 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
   - [Bootstrap 4.1](https://getbootstrap.com)
   - [Devise](https://github.com/plataformatec/devise)
   - [Validates](https://github.com/kaize/validates)
+  - [Faker](https://github.com/stympy/faker)
 
 1. Clonar el repositorio:
 
