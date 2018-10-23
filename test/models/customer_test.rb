@@ -5,6 +5,10 @@ class CustomerTest < ActiveSupport::TestCase
     @agus = customers(:agus)
   end
 
+  test "it returns its initials" do
+    assert 'AO', @agus.initials
+  end
+
   test "should accept customer with valid attributes" do
     assert @agus.valid?
   end

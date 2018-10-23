@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_184201) do
+ActiveRecord::Schema.define(version: 2018_10_23_195314) do
 
   create_table "artifacts", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 2018_10_23_184201) do
     t.integer "estimated_days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "code"
     t.index ["artifact_id"], name: "index_repairs_on_artifact_id"
+    t.index ["code"], name: "index_repairs_on_code", unique: true
     t.index ["customer_id"], name: "index_repairs_on_customer_id"
   end
 
