@@ -13,8 +13,6 @@ document.addEventListener('turbolinks:load', () => {
   window.axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
   window.vueapp = new Vue({
-    el: '#app',
-
     components: { DeleteButton }
-  })
+  }).$mount('#root')
 });
