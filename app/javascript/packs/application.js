@@ -1,18 +1,17 @@
-import TurbolinksAdapter from 'vue-turbolinks';
-import Vue from 'vue/dist/vue.esm';
+import Vue from 'vue/dist/vue.esm.js';
 import VueSweetalert2 from 'vue-sweetalert2';
 import axios from 'axios';
-import DeleteButton from '../DeleteButton.vue';
+import DeleteButton from '../DeleteButton';
 
-Vue.use(TurbolinksAdapter);
 Vue.use(VueSweetalert2);
 
 window.axios = axios;
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   window.axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-  window.vueapp = new Vue({
+  const app = new Vue({
+    el: "#app",
     components: { DeleteButton }
-  }).$mount('#app')
-});
+  })
+})
