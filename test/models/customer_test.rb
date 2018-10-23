@@ -6,7 +6,7 @@ class CustomerTest < ActiveSupport::TestCase
   end
 
   test "it returns its initials" do
-    assert 'AO', @agus.initials
+    assert 'ASO', @agus.initials
   end
 
   test "should accept customer with valid attributes" do

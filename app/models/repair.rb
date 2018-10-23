@@ -8,6 +8,6 @@ class Repair < ApplicationRecord
 
 private
   def generate_repair_code
-    "#{customer.initials}#{id}"
+    self.code = "#{customer.initials}#{id}"
   end
 end

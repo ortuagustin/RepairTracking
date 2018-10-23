@@ -13,7 +13,7 @@ class RepairTest < ActiveSupport::TestCase
 
   test "should generate repair code when saved" do
     repair = Repair.create(customer: @agus, artifact: @heladera, estimated_days: 5)
-    assert_equal "AO#{repair.id}", repair.code
+    assert_equal "ASO#{repair.id}", repair.code
   end
 
   test "should not accept repair without a customer" do
