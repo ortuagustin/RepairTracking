@@ -43,6 +43,12 @@ es:
     input_field: "Ingresá tu código"
     submit: "Consutlar"
   customers:
+    actions:
+      delete:
+        title: "Eliminar Cliente?"
+        text: "Está sesguro de que desea eliminar a %{name}, %{surname}"
+        confirm: "Si"
+        cancel: "No"
     index:
       title: "Clientes"
       new: "Crear Cliente"

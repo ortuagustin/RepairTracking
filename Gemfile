@@ -72,3 +72,4 @@ gem 'validates'
 gem "faker"
 gem "kaminari"
 gem 'bootstrap4-kaminari-views'
+gem 'webpacker', '~> 3.5'

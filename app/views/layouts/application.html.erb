@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RepairTracking</title>
+  <title><%= content_for?(:title) ? yield(:title) : "RepairTracking" %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-  <%= render 'layouts/navbar' %>
+  <div id="app">
+    <%= render 'layouts/navbar' %>
 
-  <div class="container">
-    <% if notice.present? %>
-      <p class="notice">
-        <%= notice %>
-      </p>
-    <% end %>
+    <div class="container">
+      <% if notice.present? %>
+        <p class="notice">
+          <%= notice %>
+        </p>
+      <% end %>
 
-    <% if alert.present? %>
-      <p class="alert">
-        <%= alert %>
-      </p>
-    <% end %>
+      <% if alert.present? %>
+        <p class="alert">
+          <%= alert %>
+        </p>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
