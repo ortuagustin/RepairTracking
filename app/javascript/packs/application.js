@@ -9,7 +9,7 @@ Vue.use(VueSweetalert2);
 
 window.axios = axios;
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   window.axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
   const app = new Vue({
