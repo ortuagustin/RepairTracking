@@ -3,6 +3,7 @@ import Vue from 'vue/dist/vue.esm';
 import vSelect from 'vue-select'
 import axios from 'axios';
 import DeleteButton from '../DeleteButton';
+import LogoutButton from '../LogoutButton';
 import RepairForm from '../RepairForm';
 
 Vue.use(TurbolinksAdapter)
@@ -16,6 +17,6 @@ document.addEventListener('turbolinks:load', () => {
 
   new Vue({
     el: "#app",
-    components: { DeleteButton, RepairForm }
+    components: { DeleteButton, LogoutButton, RepairForm }
   })
 })

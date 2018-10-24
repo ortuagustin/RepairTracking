@@ -18,7 +18,17 @@
         </span>
 
         <div class="col text-center">
-          <%= link_to (t 'navigation.logout_link_label'), destroy_user_session_path, class: "nav-link" %>
+            <logout-button
+              url="<%= destroy_user_session_path %>"
+              title="<%= t 'navigation.actions.logout.button' %>"
+              type="<%= 'warning' %>"
+              confirm-button="<%= t 'navigation.actions.logout.confirm' %>"
+              cancel-button="<%= t 'navigation.actions.logout.cancel' %>"
+            >
+              <%= (t 'navigation.logout_link_label') %>
+
+            </logout-button>
+
         </div>
       </span>
     <% end %>
