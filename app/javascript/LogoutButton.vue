@@ -1,7 +1,7 @@
 <template>
-  <p class="btn btn-outline-danger" @click.prevent="clicked">
-    <i class="fas fa-trash-alt"></i>
-  </p>
+  <a href="#!" @click.prevent="clicked">
+    <slot></slot>
+  </a>
 </template>
 
 <script>
@@ -12,7 +12,6 @@ export default {
     clicked() {
       swal({
         title: this.title,
-        text: this.text,
         type: this.type,
         showCancelButton: true,
         // confirmButtonColor: "#3085d6",
@@ -21,7 +20,7 @@ export default {
         cancelButtonText: this.cancelButton,
       }).then(result => {
         if (result.value) {
-          axios.delete(this.url).then((data) => location.reload(true))
+          axios.get(this.url).then((data) => location.href = 'http://localhost:3000')
         }
       });
     }

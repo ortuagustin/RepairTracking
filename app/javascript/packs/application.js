@@ -1,13 +1,12 @@
 import TurbolinksAdapter from 'vue-turbolinks';
 import Vue from 'vue/dist/vue.esm';
-import VueSweetalert2 from 'vue-sweetalert2';
 import vSelect from 'vue-select'
 import axios from 'axios';
 import DeleteButton from '../DeleteButton';
+import LogoutButton from '../LogoutButton';
 import RepairForm from '../RepairForm';
 
 Vue.use(TurbolinksAdapter)
-Vue.use(VueSweetalert2);
 Vue.component('v-select', vSelect);
 
 window.axios = axios;
@@ -18,6 +17,6 @@ document.addEventListener('turbolinks:load', () => {
 
   new Vue({
     el: "#app",
-    components: { DeleteButton, RepairForm }
+    components: { DeleteButton, LogoutButton, RepairForm }
   })
 })

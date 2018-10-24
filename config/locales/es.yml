@@ -20,6 +20,11 @@ es:
       previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
   navigation:
+    actions:
+      logout:
+        button: "Cerrar Sesion?"
+        confirm: 'Si'
+        cancel: 'No'
     back_link_label: "Atrás"
     home_link_label: "Inicio"
     login_link_label: "Iniciar Sesión"
