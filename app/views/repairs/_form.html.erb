@@ -7,7 +7,7 @@
         <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
       </div>
 
-      <a class="btn btn-outline-info mb-5 pt-3" href="<%= new_customer_path %>">
+      <a class="btn btn-outline-info mb-5 pt-3" href="<%= new_customer_path(go_to_repair: true) %>">
         <i class="fas fa-user-plus"></i>
       </a>
     </div>

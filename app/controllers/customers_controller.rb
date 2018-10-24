@@ -25,7 +25,11 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to @customer, notice: (t 'customers.flash.created')
+      if params[:go_to_repair].present?
+        redirect_to new_repair_path(customer_id: @customer)
+      else
+        redirect_to @customer, notice: (t 'customers.flash.created')
+      end
     else
       render :new
     end
