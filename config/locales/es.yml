@@ -79,6 +79,7 @@ es:
     show:
       title: "Reparaciones"
       new: "Nueva reparación"
+      empty: "No hay reparaciones registradas"
     actions:
       delete:
         title: "Eliminar Cliente?"

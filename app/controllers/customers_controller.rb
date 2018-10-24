@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/:id
   def show
+    @repairs = @customer.repairs.order(:created_at).page(params[:page])
   end
 
   # GET /customers/new
