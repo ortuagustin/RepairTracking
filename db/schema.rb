@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_195314) do
+ActiveRecord::Schema.define(version: 2018_10_24_021244) do
 
   create_table "artifacts", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2018_10_23_195314) do
     t.index ["artifact_id"], name: "index_repairs_on_artifact_id"
     t.index ["code"], name: "index_repairs_on_code", unique: true
     t.index ["customer_id"], name: "index_repairs_on_customer_id"
+  end
+
+  create_table "revisions", force: :cascade do |t|
+    t.text "notes"
+    t.integer "repair_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["repair_id"], name: "index_revisions_on_repair_id"
   end
 
   create_table "users", force: :cascade do |t|

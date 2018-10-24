@@ -3,6 +3,7 @@ class RepairsController < ApplicationController
   # GET /repairs/1.json
   def show
     @repair = Repair.find_by_code(params[:id])
+    @revisions = @repair.revisions.order(:created_at).page(params[:page])
   end
 
   # GET /repairs/new

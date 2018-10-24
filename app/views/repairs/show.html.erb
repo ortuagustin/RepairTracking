@@ -6,7 +6,27 @@
   <p><%= t 'repairs.show.estimated_date' %> <%= Date.today %> </p>
 </div>
 
-<div class="text-center mt-5">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 25%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
+      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revisions.each do |revision| %>
+      <tr>
+        <td> <div class="text-center"> <%= l(revision.created_at, format: "%d-%m-%Y") %> </div> </td>
+        <td> <%= revision.notes %> </div> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @revisions, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
+
+<div class="text-center mt-5 mb-3">
   <a class="btn btn-outline-dark" href="<%= root_path %>">
     <span> <%= (t 'repairs.show.exit') %> </span>
     <i class="fas fa-sign-out-alt fa-lg pl-2"></i>

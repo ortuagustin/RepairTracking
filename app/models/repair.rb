@@ -1,4 +1,5 @@
 class Repair < ApplicationRecord
+  has_many :revisions
   belongs_to :customer
   belongs_to :artifact
 
