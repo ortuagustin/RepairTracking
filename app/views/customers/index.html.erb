@@ -5,46 +5,54 @@
   <span class="ml-1"><%= t 'customers.index.new' %></span>
 </a>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.id' %> </div> </th>
-      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.name' %> </div> </th>
-      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.surname' %> </div> </th>
-      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.phone' %> </div> </th>
-      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.email' %> </div> </th>
-      <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
+<% if @customers.empty? %>
+  <div class="text-center text-muted">
+    <i class="fas fa-user-slash fa-5x mt-5"></i>
+    <p class="mt-3"><%= t 'customers.index.empty' %></p>
+  </div>
+  <% else %>
+  <table class="table">
+    <thead>
       <tr>
-        <td> <div class="text-center"> <%= customer.id %> </div> </td>
-        <td> <div class="text-center"> <%= link_to customer.name, customer %> </div> </td>
-        <td> <div class="text-center"> <%= link_to customer.surname, customer %> </div> </td>
-        <td> <div class="text-center"> <%= customer.phone %> </div> </td>
-        <td> <div class="text-center"> <%= customer.email %> </div> </td>
-
-        <td style="width: 5%">
-          <a class="btn btn-outline-dark" url="<%= edit_customer_path(customer) %>">
-            <i class="fas fa-pencil-alt"></i>
-          </a>
-        </td>
-
-        <td style="width: 5%">
-          <delete-button
-            url="<%= customer_path(customer) %>"
-            title="<%= t 'customers.actions.delete.title' %>"
-            text="<%= t 'customers.actions.delete.text', name: customer.name, surname: customer.surname %>"
-            type="<%= 'warning' %>"
-            confirm-button="<%= t 'customers.actions.delete.confirm' %>"
-            cancel-button="<%= t 'customers.actions.delete.cancel' %>"
-          >
-        </td>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.id' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.name' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.surname' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.phone' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.email' %> </div> </th>
+        <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<%= paginate @customers, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td> <div class="text-center"> <%= customer.id %> </div> </td>
+          <td> <div class="text-center"> <%= link_to customer.name, customer %> </div> </td>
+          <td> <div class="text-center"> <%= link_to customer.surname, customer %> </div> </td>
+          <td> <div class="text-center"> <%= customer.phone %> </div> </td>
+          <td> <div class="text-center"> <%= customer.email %> </div> </td>
+
+          <td style="width: 5%">
+            <a class="btn btn-outline-dark" url="<%= edit_customer_path(customer) %>">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+          </td>
+
+          <td style="width: 5%">
+            <delete-button
+              url="<%= customer_path(customer) %>"
+              title="<%= t 'customers.actions.delete.title' %>"
+              text="<%= t 'customers.actions.delete.text', name: customer.name, surname: customer.surname %>"
+              type="<%= 'warning' %>"
+              confirm-button="<%= t 'customers.actions.delete.confirm' %>"
+              cancel-button="<%= t 'customers.actions.delete.cancel' %>"
+            >
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @customers, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
+
+<% end %>
