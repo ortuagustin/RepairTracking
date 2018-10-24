@@ -32,7 +32,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.save
-        format.html { redirect_to @repair, notice: (t 'repairs.flash.created') }
+        format.html { render 'show_code' }
         format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }
