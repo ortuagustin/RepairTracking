@@ -12,7 +12,12 @@ class Repair < ApplicationRecord
   end
 
   def last_revision_date
-    self.revisions.order(created_at: :desc).first.created_at || Date.today
+    revision = self.revisions.order(created_at: :desc).first
+    if revision.nil?
+      Date.today
+    else
+      revision.created_at
+    end
   end
 private
   def generate_repair_code
