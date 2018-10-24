@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ["data-repair", "dataErrors", "url"],
+  props: ["data-repair", "dataErrors", "dataSelectedCustomer", "url"],
 
   data() {
     return {
@@ -12,6 +12,10 @@ export default {
   mounted() {
     this.repair = JSON.parse(this.dataRepair);
     this.errors = JSON.parse(this.dataErrors);
+
+    if (this.dataSelectedCustomer != '' ) {
+      this.repair.customer = JSON.parse(this.dataSelectedCustomer);;
+    }
   },
 
   methods: {

@@ -1,9 +1,9 @@
 
   <%= form_with(model: @customer, local: true) do |form| %>
-  
+
   <h3 class="ml-3 mt-4"><%= @customer.surname + ', ' + @customer.name %></h3>
   <div class="row border mr-3 ml-3 mb-5 pt-4 mt-4 pb-5">
-    
+
     <div class="col-6 container ">
 
     <div class="form-group">
@@ -34,12 +34,11 @@
     </div>
 
     <div class="actions pt-4" style="text-align: center">
-
         <a href="<%= edit_customer_path(@customer)%>" class="btn btn-info mr-2">
           <i class="fas fa-edit"></i> <%= (t 'customers.show.edit_c')%>
         </a>
 
-        <a href="<%= customers_path%>" class="btn btn-outline-secondary">
+        <a href="<%= customers_path %>" class="btn btn-outline-secondary">
           <i class="fas fa-arrow-left"></i> <%= (t 'customers.show.back_c')%>
         </a>
     </div>
@@ -49,7 +48,7 @@
 
 <h3 class="ml-3 mt-4"><%= (t 'customers.show.title_r') %></h3>
 
-<a class="btn btn-outline-info ml-3 mb-4 mt-3" href="<%= new_repair_path %>">
+<a class="btn btn-outline-info ml-3 mb-4 mt-3" href="<%= new_repair_path(customer_id: @customer) %>">
   <i class="fas fa-user-plus"></i>
   <span class="ml-1"><%= t 'customers.show.new_r' %></span>
 </a>
@@ -78,7 +77,7 @@
           <td> <div class="text-center" style="color: orange"><b> PENDIENTE</b> </div> </td>
           <td>
             <i class="fas fa-plus-circle"></i> <a href="#">
-            Nueva revisión  
+            Nueva revisión
             </a>
           </td>
         </tr>

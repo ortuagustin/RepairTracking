@@ -1,4 +1,4 @@
-<repair-form data-repair="<%= @repair.to_json %>" data-errors="<%= @repair.errors.to_json %>" url="<%= repairs_path %>" inline-template>
+<repair-form data-selected-customer="<%= @selected_customer || '' %>" data-repair="<%= @repair.to_json %>" data-errors="<%= @repair.errors.to_json %>" url="<%= repairs_path %>" inline-template>
   <div v-if="repair">
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="repair_customer_id"> <%= (t 'repairs_form.customer_field') %> </label>
@@ -6,6 +6,10 @@
         <v-select v-model="repair.customer" :options="<%= @customers %>" @input="clearError('customer')"></v-select>
         <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
       </div>
+
+      <a class="btn btn-outline-info mb-5 pt-3" href="<%= new_customer_path %>">
+        <i class="fas fa-user-plus"></i>
+      </a>
     </div>
 
     <div class="form-group row">

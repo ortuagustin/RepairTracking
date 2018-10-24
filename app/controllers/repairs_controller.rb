@@ -22,6 +22,11 @@ class RepairsController < ApplicationController
   # GET /repairs/new
   def new
     @repair = Repair.new
+    if params[:customer_id]
+      @selected_customer = Customer.find(params[:customer_id])
+      @selected_customer = { label: "#{@selected_customer.name}, #{@selected_customer.surname}", value: @selected_customer.id }.to_json
+    end
+
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
     @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
   end
