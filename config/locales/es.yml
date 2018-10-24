@@ -51,10 +51,11 @@ es:
       created: "Reparación creada"
     show:
       title: "Hola, %{customer}: La reparación de tu '%{artifact}' se encuentra"
+      title_2: "Se registró la reparación de %{artifact} con el siguiente código:"
       last_revision_date: "Fecha de última revisión: "
       estimated_date: "Fecha estimada de finalización: "
       exit: "Salir"
-      no_revisions: "Ésta reparación no tiene revisiones"
+      no_revisions: "Esta reparación no tiene revisiones"
       revisions: "Revisiones: "
     not_found:
       title: "No se encontró la reparación con código: %{code}"
@@ -69,7 +70,7 @@ es:
     title: "Soy Cliente"
     subtitle: "Consultá el estado de tu reparación"
     input_field: "Ingresá tu código"
-    submit: "Consutlar"
+    submit: "Consultar"
   dashboard_reparacion:
     title1: "Reparación"
     title2: "Consultar reparación"
@@ -90,13 +91,13 @@ es:
     actions:
       delete:
         title: "Eliminar Cliente?"
-        text: "Está sesguro de que desea eliminar a %{name}, %{surname}"
+        text: "Está seguro que desea eliminar a %{name}, %{surname}"
         confirm: "Si"
         cancel: "No"
     index:
       title: "Clientes"
       new: "Crear Cliente"
-      empty: "No hay Clientes en el sistema!"
+      empty: "No hay clientes en el sistema"
     flash:
       created: "Cliente creado."
       updated: "Cliente actualizado."
