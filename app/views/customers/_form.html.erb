@@ -14,22 +14,22 @@
   <div class="row border mr-3 ml-3 mb-5 pt-4 pb-5">
     <div class="col-6 container ">
     <div class="form-group">
-      <div>* <%= form.label :surname %></div>
+      <div><%= form.label :surname %> (*)</div>
       <div><%= form.text_field :surname, class:"form-control" %></div>
     </div>
 
     <div class="form-group">
-      <div>* <%= form.label :name %></div>
+      <div><%= form.label :name %> (*)</div>
       <div><%= form.text_field :name, class:"form-control" %></div>
     </div>
 
     <div class="form-group">
-      <div>* <%= form.label :phone %></div>
+      <div><%= form.label :phone %> (*)</div>
       <div><%= form.text_field :phone, class:"form-control" %></div>
     </div>
 
     <div class="form-group">
-      <div>* <%= form.label :email %></div>
+      <div><%= form.label :email %> (*)</div>
       <div><%= form.text_field :email, class:"form-control" %></div>
     </div>
     <span>(*) Datos obligatorios. </span>
@@ -43,15 +43,12 @@
 
     <div class="actions pt-4" style="text-align: center">
       <button class="btn btn-info" type="submit">
-        <span> <%= (t 'customers_form.submit') %> </span>
-        <i class="fas fa-save"></i>
+        <i class="fas fa-save"></i> <span> <%= (t 'customers_form.submit') %> </span>
       </button>
 
-      <button class="btn" type="submit">
-        <span> <%= (t 'customers_form.cancel') %> </span>
-        <i class="fas fa-times"></i>
-        <a href="<%= customers_path %>"></a>
-      </button>
+      <a href="<%= customers_path%>" class="btn btn-outline-secondary">
+          <i class="fas fa-arrow-left"></i> <%= (t 'customers_form.cancel')%>
+        </a>
     </div>
   </div>
 </div>
