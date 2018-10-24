@@ -46,6 +46,9 @@ es:
       last_revision_date: "Fecha de última revisión: "
       estimated_date: "Fecha estimada de finalización: "
       exit: "Salir"
+    not_found:
+      title: "No se encontró la reparación con código: %{code}"
+      try_other: "Intentá con otro código"
   login_form:
     title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."

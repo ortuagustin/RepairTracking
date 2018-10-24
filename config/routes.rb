@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # scope "(:locale)", locale: /#{ I18n.locales.join("|")}/ do
     devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { sessions: 'users/sessions' }
     resources :customers
-    resources :repairs, only: [:new, :create, :show]
+    resources :repairs, only: [:new, :create, :show] do
+      get 'query', on: :collection
+    end
   # end
 
   authenticated :user do

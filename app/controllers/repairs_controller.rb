@@ -6,6 +6,18 @@ class RepairsController < ApplicationController
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
   end
 
+  # GET /repairs?code=:code
+  def query
+    @repair = Repair.find_by_code(params[:code])
+
+    unless @repair.nil?
+      @revisions = @repair.revisions.order(:created_at).page(params[:page])
+      render 'show'
+    end
+
+    render 'not_found', locals: { code: params[:code] }
+  end
+
   # GET /repairs/new
   def new
     @repair = Repair.new
