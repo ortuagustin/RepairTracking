@@ -50,7 +50,9 @@ es:
     flash:
       created: "Reparación creada"
     show:
+      new: "Nueva Revisión"
       title: "Hola, %{customer}: La reparación de tu '%{artifact}' se encuentra"
+      title_admin: "La reparación: '%{artifact}' de %{customer} se encuentra"
       last_revision_date: "Fecha de última revisión: "
       estimated_date: "Fecha estimada de finalización: "
       exit: "Salir"

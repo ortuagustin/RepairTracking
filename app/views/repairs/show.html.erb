@@ -1,4 +1,9 @@
-<h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+<% if user_signed_in? %>
+  <h2 class="text-center mt-5"> <%= t 'repairs.show.title_admin', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+<% else %>
+  <h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+<% end %>
+
 <h1 class="text-center font-weight-bold mt-5" style="color: orange;"> PENDIENTE </h1>
 
 <div class="text-center mt-5">
@@ -6,7 +11,14 @@
   <p><%= t 'repairs.show.estimated_date' %> <%= l(@repair.estimated_date, format: "%d-%m-%Y") %> </p>
 </div>
 
-<% unless @revisions.empty? %>
+<% if @revisions.empty? %>
+  <% if user_signed_in? %>
+    <a class="btn btn-outline-info" href="#!">
+      <i class="fas fa-plus-circle"></i>
+      <span class="ml-1"><%= t 'repairs.show.new' %></span>
+    </a>
+  <% end %>
+
   <div class="text-center text-muted mt-5">
     <i class="fas fa-hammer fa-5x mt-5"></i>
     <p class="mt-3"><%= t 'repairs.show.no_revisions' %></p>
@@ -16,9 +28,16 @@
     <%= t 'repairs.show.revisions' %>
   </h3>
 
-  <table class="table mt-3">
+  <% if user_signed_in? %>
+    <a class="btn btn-outline-info" href="#!">
+      <i class="fas fa-plus-circle"></i>
+      <span class="ml-1"><%= t 'repairs.show.new' %></span>
+    </a>
+  <% end %>
+
+  <table class="table table-bordered mt-3">
     <thead>
-      <tr>
+      <tr style="background-color:rgba(128, 128, 128, 0.3)">
         <th scope="col" style="width: 25%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
       </tr>
