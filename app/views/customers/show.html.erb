@@ -1,42 +1,59 @@
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
+  <%= form_with(model: @customer, local: true) do |form| %>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @customer.surname %>
-</p>
+  <div class="row border mr-3 ml-3 mb-5 pt-4 pb-5">
+    <div class="col-6 container ">
+    <div class="form-group">
+      <div><%= form.label :surname %></div>
+      <div><%= form.text_field :surname, class:"form-control", disabled:"false" %></div>
+    </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
+    <div class="form-group">
+      <div><%= form.label :name %></div>
+      <div><%= form.text_field :name, class:"form-control", disabled:"false" %></div>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
+    <div class="form-group">
+      <div><%= form.label :phone %></div>
+      <div><%= form.text_field :phone, class:"form-control", disabled:"false" %></div>
+    </div>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @customer.notes %>
-</p>
+    <div class="form-group">
+      <div><%= form.label :email %></div>
+      <div><%= form.text_field :email, class:"form-control", disabled:"false" %></div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+  <div class="col-6 container">
+    <div class="form-group">
+        <div><%= form.label :notes %></div>
+        <div><%= form.text_area :notes, rows:"6", style:"resize:none", class:"form-control", disabled:"false" %></div>
+    </div>
 
-<h3 class="mt-3 mb-4"><%= (t 'customers.show.title') %></h3>
+    <div class="actions pt-4" style="text-align: center">
+
+        <a href="<%= edit_customer_path(@customer)%>" class="btn btn-info mr-2">
+          <i class="fas fa-edit"></i> <%= (t 'customers.show.edit_c')%>
+        </a>
+
+        <a href="<%= customers_path%>" class="btn btn-outline-secondary">
+          <i class="fas fa-times"></i> <%= (t 'customers.show.back_c')%>
+        </a>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<h3 class="mt-3 mb-4"><%= (t 'customers.show.title_r') %></h3>
 
 <a class="btn btn-outline-info mb-5" href="<%= new_repair_path %>">
   <i class="fas fa-user-plus"></i>
-  <span class="ml-1"><%= t 'customers.show.new' %></span>
+  <span class="ml-1"><%= t 'customers.show.new_r' %></span>
 </a>
 
 <% if @repairs.empty? %>
   <div class="text-center text-muted">
     <i class="fas fa-sad-tear fa-5x mt-5"></i>
-    <p class="mt-3"><%= t 'customers.show.empty' %></p>
+    <p class="mt-3"><%= t 'customers.show.empty_r' %></p>
   </div>
 <% else %>
   <table class="table table-bordered">

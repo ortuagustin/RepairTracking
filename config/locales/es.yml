@@ -82,9 +82,11 @@ es:
     text_button2: "Listado de clientes"
   customers:
     show:
-      title: "Reparaciones"
-      new: "Nueva reparación"
-      empty: "No hay reparaciones registradas"
+      title_r: "Reparaciones"
+      new_r: "Nueva reparación"
+      empty_r: "No hay reparaciones registradas"
+      edit_c: "Modificar"
+      back_c: "Volver"
     actions:
       delete:
         title: "Eliminar Cliente?"
