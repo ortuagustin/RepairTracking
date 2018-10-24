@@ -46,6 +46,8 @@ es:
       last_revision_date: "Fecha de última revisión: "
       estimated_date: "Fecha estimada de finalización: "
       exit: "Salir"
+      no_revisions: "Ésta reparación no tiene revisiones"
+      revisions: "Revisiones: "
     not_found:
       title: "No se encontró la reparación con código: %{code}"
       try_other: "Intentá con otro código"
