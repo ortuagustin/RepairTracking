@@ -10,7 +10,7 @@ export default {
 
   methods: {
     clicked() {
-      this.$swal({
+      swal({
         title: this.title,
         text: this.text,
         type: this.type,
