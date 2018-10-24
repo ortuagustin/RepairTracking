@@ -31,6 +31,9 @@ es:
       zero: ""
       one: "1"
       other: "%{count}"
+  customers_form:
+    submit: "Guardar"
+    cancel: "Descartar"
   repairs_form:
     title: "Registrar Reparación"
     customer_field: "Cliente"
