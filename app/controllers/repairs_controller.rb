@@ -2,14 +2,14 @@ class RepairsController < ApplicationController
   # GET /repairs/1
   # GET /repairs/1.json
   def show
-    @repair = Repair.find(params[:id])
+    @repair = Repair.find_by_code(params[:id])
   end
 
   # GET /repairs/new
   def new
     @repair = Repair.new
-    @customers = Customer.all.collect { |customer| [ "#{customer.name}, #{customer.surname}", customer.id ] }
-    @artifacts = Artifact.all.collect { |artifact| [ artifact.name, artifact.id ] }
+    @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
   end
 
   # POST /repairs
@@ -20,7 +20,7 @@ class RepairsController < ApplicationController
     respond_to do |format|
       if @repair.save
         format.html { redirect_to @repair, notice: (t 'repairs.flash.created') }
-        format.json { render :show, status: :created, location: @repair }
+        format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @repair.errors, status: :unprocessable_entity }
