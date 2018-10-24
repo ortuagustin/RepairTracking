@@ -1,11 +1,11 @@
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(customer.errors.count, "error") %></h4>
+    <div class="ml-3" id="error_explanation">
+      <div style="color: #dc3545" ><h4><%= pluralize(customer.errors.count, "error") %></h4></div>
 
       <ul>
       <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div style="color: #dc3545" ><li><%= message %></li></div>
       <% end %>
       </ul>
     </div>
