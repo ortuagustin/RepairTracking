@@ -1,0 +1,24 @@
+
+
+<div class="container pt-5">
+	<h3 class="text-center"> <%= t 'dashboard_reparacion.title1' %> </h3>
+   <%= form_for(:user, url: user_session_path) do |f| %>
+    <%= devise_error_messages! %>
+
+	<div class="form-group">
+      <input class="form-control" type="button" name="nueva_reparacion" id="nueva_reparacion" placeholder="<%= t 'repair_query_form.input_field' %>">
+    </div>
+
+	<h3 class="text-center"> <%= t 'dashboard_reparacion.title2' %> </h3>
+    <div class="form-group row">
+      <%= f.label :password, (t 'login_form.password_field'), class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-8">
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <%= f.submit (t 'login_form.submit'), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
