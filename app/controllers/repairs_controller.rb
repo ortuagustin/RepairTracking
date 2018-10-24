@@ -4,6 +4,7 @@ class RepairsController < ApplicationController
   def show
     @repair = Repair.find_by_code(params[:id])
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
+    render 'show_code'
   end
 
   # GET /repairs?code=:code
