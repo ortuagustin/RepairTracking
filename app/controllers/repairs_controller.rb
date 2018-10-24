@@ -13,9 +13,9 @@ class RepairsController < ApplicationController
     unless @repair.nil?
       @revisions = @repair.revisions.order(:created_at).page(params[:page])
       render 'show'
+    else
+      render 'not_found', locals: { code: params[:code] }
     end
-
-    render 'not_found', locals: { code: params[:code] }
   end
 
   # GET /repairs/new
