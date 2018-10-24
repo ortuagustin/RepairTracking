@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  has_many :repairs
+  has_many :repairs, dependent: :delete_all
 
   validates :name, :surname, :email, :phone, presence: true
   validates :name, :surname, :email, length: { maximum: 50 }
