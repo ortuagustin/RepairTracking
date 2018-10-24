@@ -41,6 +41,11 @@ es:
   repairs:
     flash:
       created: "Reparación creada"
+    show:
+      title: "Hola, %{customer}: La reparación de tu '%{artifact}' se encuentra"
+      last_revision_date: "Fecha de última revisión: "
+      estimated_date: "Fecha estimada de finalización: "
+      exit: "Salir"
   login_form:
     title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."

@@ -1,16 +1,14 @@
-<p>
-  <strong>Customer:</strong>
-  <%= @repair.customer %>
-</p>
+<h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+<h1 class="text-center mt-5"> PENDIENTE </h1>
 
-<p>
-  <strong>Artifact:</strong>
-  <%= @repair.artifact %>
-</p>
+<div class="text-center mt-5">
+  <p><%= t 'repairs.show.last_revision_date' %> <%= Date.today %> </p>
+  <p><%= t 'repairs.show.estimated_date' %> <%= Date.today %> </p>
+</div>
 
-<p>
-  <strong>Estimated days:</strong>
-  <%= @repair.estimated_days %>
-</p>
-
-<%= link_to 'Back', customers_path %>
+<div class="text-center mt-5">
+  <a class="btn btn-outline-dark" href="<%= root_path %>">
+    <span> <%= (t 'repairs.show.exit') %> </span>
+    <i class="fas fa-sign-out-alt fa-lg pl-2"></i>
+  </a>
+</div>
