@@ -7,8 +7,8 @@
         <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
       </div>
 
-      <a class="btn btn-outline-info mb-5 pt-3" href="<%= new_customer_path(go_to_repair: true) %>">
-        <i class="fas fa-user-plus"></i>
+      <a class="btn btn-outline-info mb-2 pt-3" href="<%= new_customer_path(go_to_repair: true) %>">
+        <i class="fas fa-user-plus fa-lg"></i>
       </a>
     </div>
 
@@ -21,22 +21,22 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="repair_estimated_days"> <%= (t 'repairs_form.estimated_days_field') %> </label>
+      <label class="col-sm-2 col-form-label mt-3" for="repair_estimated_days"> <%= (t 'repairs_form.estimated_days_field') %> </label>
       <div class="col-sm-2">
-        <input v-model="repair.estimated_days" class="form-control" type="number" @input="clearError('estimated_days')">
+        <input v-model="repair.estimated_days" class="form-control mt-3" type="number" @input="clearError('estimated_days')">
         <small v-if="hasError('estimated_days')" class="font-weight-bold text-danger" v-text="error('estimated_days')"></small>
       </div>
     </div>
 
     <div class="text-center mr-5 pr-5 mt-5">
-      <button class="btn btn-primary mr-2" type="submit" @click="submit">
-        <span> <%= (t 'repairs_form.submit') %> </span>
-        <i class="fas fa-save"></i>
+      <button class="btn btn-info mr-2" type="submit" @click="submit">
+        <i class="fas fa-save"></i> <span> <%= (t 'repairs_form.submit') %> </span>
+        
       </button>
 
-      <a class="btn btn-outline-danger" href="<%= customers_path %>">
-        <span> <%= (t 'repairs_form.cancel') %> </span>
-        <i class="fas fa-times"></i>
+      <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+        <i class="fas fa-times"></i> <span> <%= (t 'repairs_form.cancel') %> </span>
+        
       </a>
     </div>
   </div>
