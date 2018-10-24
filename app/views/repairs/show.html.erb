@@ -1,9 +1,9 @@
 <h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
-<h1 class="text-center mt-5"> PENDIENTE </h1>
+<h1 class="text-center font-weight-bold mt-5" style="color: orange;"> PENDIENTE </h1>
 
 <div class="text-center mt-5">
-  <p><%= t 'repairs.show.last_revision_date' %> <%= Date.today %> </p>
-  <p><%= t 'repairs.show.estimated_date' %> <%= Date.today %> </p>
+  <p><%= t 'repairs.show.last_revision_date' %> <%= l(@repair.last_revision_date, format: "%d-%m-%Y") %> </p>
+  <p><%= t 'repairs.show.estimated_date' %> <%= l(@repair.estimated_date, format: "%d-%m-%Y") %> </p>
 </div>
 
 <% unless @revisions.empty? %>
