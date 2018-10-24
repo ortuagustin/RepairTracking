@@ -41,6 +41,10 @@
         <div><%= form.text_area :notes, rows:"6", style:"resize:none", class:"form-control" %></div>
     </div>
 
+    <% if params[:go_to_repair] %>
+      <%= hidden_field_tag 'go_to_repair', value: true %>
+    <% end %>
+
     <div class="actions pt-4" style="text-align: center">
       <button class="btn btn-info" type="submit">
         <i class="fas fa-save"></i> <span> <%= (t 'customers_form.submit') %> </span>
