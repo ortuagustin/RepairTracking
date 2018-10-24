@@ -3,12 +3,17 @@
 <h2 class="text-center"> <%= t 'dashboard_cliente.title' %> </h2>
   <div class="container col-10 pt-4">
   	<div class="form-group">
-        <button class="form-control dashboard" type="button" name="nuevo_cliente" id="nuevo_cliente"><i class='fas fas_color fa-user-plus fa-lg'></i> <%= t 'dashboard_cliente.text_button' %></button>
+        <button class="form-control dashboard" type="button">
+        <i class='fas fas_color fa-user-plus fa-lg'></i>
+          <%= link_to (t 'dashboard_cliente.text_button'), new_customer_path %>
+        </button>
     </div>
     <hr>
     <div class="form-group pt-3">
-        <button class="form-control dashboard2" type="button" name="listado_cliente" id="listado_cliente"><i class='fas fas_color fa-users fa-lg'></i> <%= t 'dashboard_cliente.text_button2' %></button>
-
+        <button class="form-control dashboard2" type="button">
+        <i class='fas fas_color fa-users fa-lg'></i>
+        <%= link_to (t 'dashboard_cliente.text_button2'), customers_path %>
+        </button>
     </div>
   </div>
 </div>
