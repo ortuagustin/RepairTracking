@@ -1,24 +1,22 @@
-
-
-<div class="container pt-5">
-	<h3 class="text-center"> <%= t 'dashboard_reparacion.title1' %> </h3>
-   <%= form_for(:user, url: user_session_path) do |f| %>
-    <%= devise_error_messages! %>
-
-	<div class="form-group">
-      <input class="form-control" type="button" name="nueva_reparacion" id="nueva_reparacion" placeholder="<%= t 'repair_query_form.input_field' %>">
+<div class="container pt-3">
+	<h2 class="text-center"> <%= t 'dashboard_reparacion.title1' %> </h2>
+  <div class="container col-10 pt-4">
+  	<div class="form-group">
+        <button class="form-control dashboard" type="button" name="nueva_reparacion" id="nueva_reparacion"><i class='fas fas_color fa-wrench fa-lg'> </i> <%= t 'dashboard_reparacion.text_button' %></button>
     </div>
-
-	<h3 class="text-center"> <%= t 'dashboard_reparacion.title2' %> </h3>
-    <div class="form-group row">
-      <%= f.label :password, (t 'login_form.password_field'), class: "col-sm-3 col-form-label" %>
-      <div class="col-sm-8">
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
+  </div>
+  <hr>
+	<h4 class="text-center pt-4"> <%= t 'dashboard_reparacion.title2' %> </h4>
+    <div class="container col-10 pt-3">
+      <form action="#">
+        <div class="form-group">
+          <input class="form-control" type="text" name="code" id="code" placeholder="<%= t 'dashboard_reparacion.codigo_field' %>">
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-info">
+            <i class="fas fa-search"></i> <%= t 'dashboard_reparacion.text_button2' %>
+          </button>
+        </div>
+      </form>
     </div>
-
-    <div class="text-center mt-5">
-      <%= f.submit (t 'login_form.submit'), class: "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
+  </div>

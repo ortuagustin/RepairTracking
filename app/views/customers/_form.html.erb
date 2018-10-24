@@ -1,7 +1,7 @@
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h4><%= pluralize(customer.errors.count, "error") %></h4>
 
       <ul>
       <% customer.errors.full_messages.each do |message| %>
@@ -11,32 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+
+<div class="row border mr-3 ml-3 mb-5 pt-4 pb-5">
+  <div class="col-6 container ">
+    <div class="form-group">
+      <div><%= form.label :surname %></div>
+      <div><%= form.text_field :surname, class:"form-control" %></div>
+    </div>
+
+    <div class="form-group">
+      <div><%= form.label :name %></div>
+      <div><%= form.text_field :name, class:"form-control" %></div>
+    </div>
+
+    <div class="form-group">
+      <div><%= form.label :phone %></div>
+      <div><%= form.text_field :phone, class:"form-control" %></div>
+    </div>
+
+    <div class="form-group">
+      <div><%= form.label :email %></div>
+      <div><%= form.text_field :email, class:"form-control" %></div>
+    </div>
+    <span>(*) Datos obligatorios. </span>
+  </div>
+  <div class="col-6 container">
+    <div class="form-group">
+        <div><%= form.label :notes %></div>
+        <div><%= form.text_area :notes, rows:"6", style:"resize:none", class:"form-control" %></div>
+    </div>
+    <div class="actions pt-4" style="text-align: center">
+      <%= form.submit :Crear, class:"btn btn-info" %>
+      <%= form.submit :Descartar, class:"btn" %>
+    </div> 
   </div>
 
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname %>
-  </div>
+  
+</div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

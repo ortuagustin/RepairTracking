@@ -27,3 +27,38 @@
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+
+<h3 class="mt-3 mb-4"><%= (t 'customers.show.title') %></h3>
+
+<a class="btn btn-outline-info mb-5" href="<%= new_customer_path %>">
+  <i class="fas fa-user-plus"></i>
+  <span class="ml-1"><%= t 'customers.show.new' %></span>
+</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr style="background-color:rgba(128, 128, 128, 0.3)">
+      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.reparacion.codigo' %> </div> </th>
+      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.reparacion.artefacto' %> </div> </th>
+      <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.reparacion.estado' %> </div> </th> 
+      <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |reparacion| %>
+      <tr align="center">
+        <td> <div class="text-center"> <%= reparacion.codigo %> </div> </td>
+        <td> <div class="text-center"> <%= reparacion.artefacto %> </div> </td>
+        <td> <div class="text-center"> <%= reparacion.estado %> </div> </td>
+        <td>
+          <a class="btn btn-outline" url="#">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+         </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @customers, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>

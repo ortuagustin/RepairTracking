@@ -62,7 +62,20 @@ es:
     subtitle: "Consultá el estado de tu reparación"
     input_field: "Ingresá tu código"
     submit: "Consutlar"
+  dashboard_reparacion:
+    title1: "Reparación"
+    title2: "Consultar reparación"
+    codigo_field: "Ingresar código"
+    text_button: "Nueva reparación"
+    text_button2: "Consultar"
+  dashboard_cliente:
+    title: "Cliente"
+    text_button: "Crear cliente"
+    text_button2: "Listado de clientes"
   customers:
+    show:
+      title: "Reparaciones"
+      new: "Nueva reparación"
     actions:
       delete:
         title: "Eliminar Cliente?"
@@ -83,6 +96,10 @@ es:
         one: "Cliente"
         other: "Clientes"
     attributes:
+      reparacion:
+        codigo: "Código"
+        artefacto: "Artefacto"
+        estado: "Estado"
       customer:
         id: "N°"
         name: "Nombre"

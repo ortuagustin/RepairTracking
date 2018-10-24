@@ -1,9 +1,14 @@
-<div class="row">
-  <div class="col border mr-3 ml-3 mb-5 mt-5 pt-4 pb-5">
-    <input type="button" value="Prueba">
-  </div>
+<div class="container pt-3">
 
-  <div class="col border mr-3 ml-3 mb-5 mt-5 pt-4 pb-5">
-    <input type="button" value="Prueba">
+<h2 class="text-center"> <%= t 'dashboard_cliente.title' %> </h2>
+  <div class="container col-10 pt-4">
+  	<div class="form-group">
+        <button class="form-control dashboard" type="button" name="nuevo_cliente" id="nuevo_cliente"><i class='fas fas_color fa-user-plus fa-lg'></i> <%= t 'dashboard_cliente.text_button' %></button>
+    </div>
+    <hr>
+    <div class="form-group pt-3">
+        <button class="form-control dashboard2" type="button" name="listado_cliente" id="listado_cliente"><i class='fas fas_color fa-users fa-lg'></i> <%= t 'dashboard_cliente.text_button2' %></button>
+
+    </div>
   </div>
 </div>
