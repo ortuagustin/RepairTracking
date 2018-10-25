@@ -1,4 +1,5 @@
 class ArtifactsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_artifact, only: [:show, :edit, :update, :destroy]
 
   # GET /artifacts

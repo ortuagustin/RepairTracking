@@ -1,4 +1,6 @@
 class RepairsController < ApplicationController
+  before_action :authenticate_user!, except: [:query]
+
   # GET /repairs/1
   # GET /repairs/1.json
   def show
