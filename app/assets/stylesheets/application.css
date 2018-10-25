@@ -15,14 +15,6 @@
  *= require_self
  */
 
- .dashboard{
-  margin-bottom: 15%
-}
-
-.dashboard2{
-  margin-top: 15%
-}
-
-.fas_color{
- color: rgb(23, 162, 184)
+.fas_color {
+  color: rgb(23, 162, 184);
 }

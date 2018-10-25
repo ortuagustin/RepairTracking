@@ -1,14 +1,22 @@
 <div class="container pt-3">
-	<h2 class="text-center"> <%= t 'dashboard_reparacion.title1' %> </h2>
-  <div class="container col-10 pt-4">
-  	<div class="form-group">
-        <button class="form-control dashboard" type="button">
-        <i class='fas fas_color fa-wrench fa-lg'> </i>
-          <%= link_to (t 'dashboard_reparacion.text_button'), new_repair_path %>
-        </button>
+  <div class="row">
+    <a class="col btn card text-center" href="<%= new_repair_path %>">
+      <div class="card-body">
+        <i class='fas fas_color fa-wrench fa-5x'></i>
+        <h2 class="mt-2"><%= t 'dashboard_reparacion.text_button' %></h2>
+      </div>
+    </a>
+  </div>
+
+  <div class="form-group pt-3">
+    <div class="row">
+      <div class="col btn card text-center">
+        <div class="card-body">
+          <h2 class="text-primary"> <%= t 'dashboard_reparacion.title2' %> </h2>
+
+          <%= render 'home/repair_query_form' %>
+        </div>
+      </div>
     </div>
   </div>
-  <hr>
-	<h4 class="text-center pt-4"> <%= t 'dashboard_reparacion.title2' %> </h4>
-    <%= render 'home/repair_query_form' %>
-  </div>
+</div>
