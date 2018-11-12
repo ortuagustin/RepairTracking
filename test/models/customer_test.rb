@@ -57,4 +57,15 @@ class CustomerTest < ActiveSupport::TestCase
     @agus.phone = 'test'
     assert @agus.invalid?
   end
+
+  test "deleting a customer should delete associated repairs" do
+    agus = customers(:agus)
+
+    Repair.create!(customer: agus, artifact: Artifact.first, estimated_days: 5)
+    Repair.create!(customer: agus, artifact: Artifact.second, estimated_days: 5)
+    assert_equal 2, Repair.count
+
+    agus.destroy
+    assert_equal 0, Repair.count
+  end
 end
