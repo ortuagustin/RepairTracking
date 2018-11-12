@@ -2,6 +2,8 @@
 
 heladera:
   name: 'Heladera'
+  model: "abc123"
 
 televisor:
   name: 'Televisor'
+  model: "zxc123"

@@ -33,4 +33,16 @@ class ArtifactTest < ActiveSupport::TestCase
     artifact.save!
     assert duplicated_artifact.invalid?
   end
+
+  test "deleting an artifact should delete associated repairs" do
+    agus = customers(:agus)
+    heladera = artifacts(:heladera)
+
+    Repair.create!(customer: agus, artifact: heladera, estimated_days: 5)
+    Repair.create!(customer: agus, artifact: heladera, estimated_days: 5)
+    assert_equal 2, Repair.count
+
+    heladera.destroy
+    assert_equal 0, Repair.count
+  end
 end
