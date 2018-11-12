@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_143414) do
+ActiveRecord::Schema.define(version: 2018_11_12_150359) do
 
   create_table "artifacts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "model"
+    t.string "description"
     t.index ["model"], name: "index_artifacts_on_model", unique: true
   end
 
