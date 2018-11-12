@@ -7,29 +7,19 @@
   </a>
 
   <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto"></ul>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
 
     <% if user_signed_in? %>
       <span>
-        <span class="navbar-text">
-          <div class="col">
-            <%= t 'navigation.welcome', email: current_user.email %>
-          </div>
-        </span>
-
-        <div class="col text-center">
-            <logout-button
-              url="<%= destroy_user_session_path %>"
-              title="<%= t 'navigation.actions.logout.button' %>"
-              type="<%= 'warning' %>"
-              confirm-button="<%= t 'navigation.actions.logout.confirm' %>"
-              cancel-button="<%= t 'navigation.actions.logout.cancel' %>"
-            >
-              <%= (t 'navigation.logout_link_label') %>
-
-            </logout-button>
-
+        <div class="navbar-text mr-2">
+          <%= t 'navigation.welcome', email: current_user.email %>
         </div>
+
+        <logout-button
+          logout-url="<%= destroy_user_session_path %>"
+          redirect-url="<%= root_path %>"
+        >
+        </logout-button>
       </span>
     <% end %>
   </div>
