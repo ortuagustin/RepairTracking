@@ -7,7 +7,15 @@
   </a>
 
   <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <%= link_to 'Clientes', customers_path, class: 'nav-link mt-2' %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Artefactos', artifacts_path, class: 'nav-link mt-2' %>
+      </li>
+    </ul>
 
     <% if user_signed_in? %>
       <span>
