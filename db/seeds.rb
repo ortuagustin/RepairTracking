@@ -1,6 +1,7 @@
 require 'faker'
 
 User.destroy_all
+Customer.destroy_all
 Artifact.destroy_all
 
 User.create(email: 'ortu.agustin@gmail.com', password: '1234')
@@ -15,7 +16,7 @@ ActiveRecord::Base.transaction do
   end
 end
 
-Artifact.create(name: 'Heladera')
-Artifact.create(name: 'Televisor')
-Artifact.create(name: 'Lavarropas')
-Artifact.create(name: 'Microondas')
+Artifact.create(name: 'Heladera', model: 'PHILCO PHCC340X')
+Artifact.create(name: 'Televisor', model: 'SAMSUNG UN49K5500')
+Artifact.create(name: 'Lavarropas', model: 'DREAN Next 8.12')
+Artifact.create(name: 'Microondas', model: 'ATMA md1728gn')
