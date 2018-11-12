@@ -31,11 +31,13 @@
           <td> <div class="text-center"> <%= link_to customer.name, customer %> </div> </td>
           <td> <div class="text-center"> <%= customer.phone %> </div> </td>
           <td> <div class="text-center"> <%= customer.email %> </div> </td>
+
           <td style="border-right:0">
-            <a class="btn btn-outline-warning" href="<%= edit_customer_path(customer) %>">
+            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_customer_path(customer) %>">
               <i class="fas fa-pencil-alt"></i>
             </a>
           </td>
+
           <td style="border-left:0">
             <delete-button
               url="<%= customer_path(customer) %>"
