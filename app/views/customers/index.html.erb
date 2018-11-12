@@ -42,8 +42,8 @@
             <delete-button
               url="<%= customer_path(customer) %>"
               title="<%= t 'customers.actions.delete.title' %>"
-              text="<%= t 'customers.actions.delete.text', name: customer.name, surname: customer.surname %>"
-              type="<%= 'btn btn-danger' %>"
+              text="<%= (t 'customers.actions.delete.text', name: customer.name, surname: customer.surname) %>"
+              type="<%= 'question' %>"
               confirm-button="<%= t 'customers.actions.delete.confirm' %>"
               cancel-button="<%= t 'customers.actions.delete.cancel' %>">
             </delete-button>

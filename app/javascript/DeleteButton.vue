@@ -12,7 +12,7 @@ export default {
     clicked() {
       swal({
         title: this.title,
-        text: this.text,
+        html: this.text,
         type: this.type,
         showCancelButton: true,
         // confirmButtonColor: "#3085d6",

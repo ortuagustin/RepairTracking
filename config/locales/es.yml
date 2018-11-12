@@ -54,7 +54,7 @@ es:
     actions:
       delete:
         title: "Eliminar Artefacto?"
-        text: "Está seguro que desea eliminar a %{name}, %{model}"
+        text: "Está seguro que desea eliminar a <em>%{name}, %{model}</em>?</br></br>Las reparaciones asociadas también serán eliminadas!"
         confirm: "Si"
         cancel: "No"
     flash:
@@ -108,8 +108,8 @@ es:
     actions:
       delete:
         title: "Eliminar Cliente?"
-        text: "Está seguro que desea eliminar a %{name}, %{surname}"
         confirm: "Si"
+        text: "Está seguro que desea eliminar a <em>%{surname}, %{name}</em>?</br></br>Sus reparaciones también serán eliminadas!"
         cancel: "No"
     index:
       title: "Clientes"
