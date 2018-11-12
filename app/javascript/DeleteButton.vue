@@ -1,5 +1,5 @@
 <template>
-  <p class="btn btn-outline-danger" @click.prevent="clicked">
+  <p class="btn btn-outline-danger" title="Eliminar" @click.prevent="clicked">
     <i class="fas fa-trash-alt"></i>
   </p>
 </template>
