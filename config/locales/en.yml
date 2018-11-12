@@ -27,6 +27,11 @@ en:
     subtitle: "Check the state of my repair"
     input_field: "Repair Code"
     submit: "Query"
+  artifacts:
+    flash:
+      created: "Artifact successfully created."
+      updated: "Artifact successfully updated."
+      deleted: "Artifact successfully deleted."
   customers:
     flash:
       created: "Customer successfully created."

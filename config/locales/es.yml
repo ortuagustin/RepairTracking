@@ -46,6 +46,17 @@ es:
     estimated_days_field: "Cant. días estimados"
     submit: "Guardar"
     cancel: "Descartar"
+  artifacts:
+    actions:
+      delete:
+        title: "Eliminar Artefacto?"
+        text: "Está seguro que desea eliminar a %{name}, %{model}"
+        confirm: "Si"
+        cancel: "No"
+    flash:
+      created: "Artefacto creado."
+      updated: "Artefacto actualizado."
+      deleted: "Artefacto eliminado."
   repairs:
     flash:
       created: "Reparación creada"

@@ -3,13 +3,11 @@ class ArtifactsController < ApplicationController
   before_action :set_artifact, only: [:show, :edit, :update, :destroy]
 
   # GET /artifacts
-  # GET /artifacts.json
   def index
-    @artifacts = Artifact.all
+    @artifacts = Artifact.order(:name, :model).page(params[:page])
   end
 
-  # GET /artifacts/1
-  # GET /artifacts/1.json
+  # GET /artifacts/:id
   def show
   end
 
@@ -18,58 +16,45 @@ class ArtifactsController < ApplicationController
     @artifact = Artifact.new
   end
 
-  # GET /artifacts/1/edit
+  # GET /artifacts/:id/edit
   def edit
   end
 
   # POST /artifacts
-  # POST /artifacts.json
   def create
     @artifact = Artifact.new(artifact_params)
 
-    respond_to do |format|
-      if @artifact.save
-        format.html { redirect_to @artifact, notice: 'Artifact was successfully created.' }
-        format.json { render :show, status: :created, location: @artifact }
+    if @customer.save
+      if params[:go_to_repair].present?
+        redirect_to new_repair_path(artifact_id: @artifact)
       else
-        format.html { render :new }
-        format.json { render json: @artifact.errors, status: :unprocessable_entity }
+        redirect_to @artifact, notice: (t 'artifacts.flash.created')
       end
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /artifacts/1
-  # PATCH/PUT /artifacts/1.json
+  # PATCH/PUT /artifacts/:id
   def update
-    respond_to do |format|
-      if @artifact.update(artifact_params)
-        format.html { redirect_to @artifact, notice: 'Artifact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artifact }
-      else
-        format.html { render :edit }
-        format.json { render json: @artifact.errors, status: :unprocessable_entity }
-      end
+    if @artifact.update(artifact_params)
+      redirect_to @artifact, notice: (t 'artifacts.flash.updated')
+    else
+      render :edit
     end
   end
 
-  # DELETE /artifacts/1
-  # DELETE /artifacts/1.json
+  # DELETE /artifacts/:id
   def destroy
     @artifact.destroy
-    respond_to do |format|
-      format.html { redirect_to artifacts_url, notice: 'Artifact was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to artifacts_url, notice: (t 'artifacts.flash.deleted'), status: 303
+  end
+private
+  def set_artifact
+    @artifact = Artifact.find(params[:id])
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_artifact
-      @artifact = Artifact.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def artifact_params
-      params.require(:artifact).permit(:name)
-    end
+  def artifact_params
+    params.require(:artifact).permit(:name, :model, :description)
+  end
 end
