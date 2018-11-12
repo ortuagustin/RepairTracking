@@ -47,6 +47,10 @@ es:
     submit: "Guardar"
     cancel: "Descartar"
   artifacts:
+    index:
+      title: "Artefactos"
+      new: "Crear Artefacto"
+      empty: "No hay artefactos en el sistema"
     actions:
       delete:
         title: "Eliminar Artefacto?"
@@ -120,6 +124,9 @@ es:
       customer:
         one: "Cliente"
         other: "Clientes"
+      artifact:
+        one: "Artefacto"
+        other: "Artefactos"
     attributes:
       reparacion:
         codigo: "Código"
@@ -132,6 +139,11 @@ es:
         email: "Email"
         phone: "Teléfono"
         notes: "Observaciones"
+      artifact:
+        id: "N°"
+        name: "Nombre"
+        model: "Modelo"
+        description: "Descripción"
       revision:
         created_at: "Fecha revisión"
         notes: "Observación"
