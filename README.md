@@ -62,7 +62,7 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
   ```
 
 5. Configurar la base de datos:
-  - Para crear la BD, ejecutar: `rails db:migrate`
+  - Para crear la BD, ejecutar: `rails db:create && rails db:migrate`
   - Para inicializar la BD con los *seeds*, es decir, un set de datos inicial, ejecutar `rails db:seed`
 
 6. Se utiliza [Webpacker](https://github.com/rails/webpacker) para los assets utilizados en el frontend; correr en el directorio raiz del proyecto:
