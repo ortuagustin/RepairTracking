@@ -61,6 +61,27 @@ es:
       created: "Artefacto creado."
       updated: "Artefacto actualizado."
       deleted: "Artefacto eliminado."
+  artifacts_form:
+    submit: "Guardar"
+    cancel: "Descartar"
+  pieces:
+    index:
+      title: "Piezas"
+      new: "Crear pieza"
+      empty: "No hay piezas para el artefacto"
+    actions:
+      delete:
+        title: "Eliminar pieza?"
+        text: "Está seguro que desea eliminar a <em>%{name}</em>?"
+        confirm: "Si"
+        cancel: "No"
+    flash:
+      created: "Pieza creada."
+      updated: "Pieza actualizada."
+      deleted: "Pieza eliminada."
+  pieces_form:
+    submit: "Guardar"
+    cancel: "Descartar"
   repairs:
     flash:
       created: "Reparación creada"
@@ -71,7 +92,7 @@ es:
       title_2: "Se registró la reparación de %{artifact} con el siguiente código:"
       last_revision_date: "Fecha de última revisión: "
       estimated_date: "Fecha estimada de finalización: "
-      exit: "Salir"
+      exit: "Listo"
       no_revisions: "Esta reparación no tiene revisiones"
       revisions: "Revisiones: "
     not_found:
@@ -127,6 +148,9 @@ es:
       artifact:
         one: "Artefacto"
         other: "Artefactos"
+      piece:
+        one: "Pieza"
+        other: "Piezas"
     attributes:
       reparacion:
         codigo: "Código"
@@ -142,7 +166,11 @@ es:
       artifact:
         id: "N°"
         name: "Nombre"
-        model: "Modelo"
+        model: "Marca/Modelo"
+        description: "Descripción"
+      piece:
+        id: "N°"
+        name: "Nombre"
         description: "Descripción"
       revision:
         created_at: "Fecha revisión"

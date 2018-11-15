@@ -11,12 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<div class="row border mr-3 ml-3 mb-4 pt-4 pb-4">
+    <div class="col-6 container ">
+    <div class="form-group">
+      <div><%= form.label :name %> (*)</div>
+      <div><%= form.text_field :name, class:"form-control" %></div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="form-group">
+      <div><%= form.label :model %> (*)</div>
+      <div><%= form.text_field :model, class:"form-control" %></div>
+    </div>
+</div>
+  <div class="col-6 container">
+    <div class="form-group">
+        <div><%= form.label :description %></div>
+        <div><%= form.text_area :description, rows:"4", style:"resize:none", class:"form-control" %></div>
+    </div>  
   </div>
+</div>
+<div class="actions" style="text-align: center">
+      <button class="btn btn-info" type="submit">
+        <i class="fas fa-save"></i> <span> <%= (t 'artifacts_form.submit') %> </span>
+      </button>
+
+      <a href="<%= artifacts_path%>" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> <%= (t 'artifacts_form.cancel')%>
+      </a>
+    </div>
+
 <% end %>

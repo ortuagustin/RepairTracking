@@ -18,12 +18,15 @@
         <v-select v-model="repair.artifact" :options="<%= @artifacts %>" @input="clearError('artifact')"></v-select>
         <small v-if="hasError('artifact')" class="font-weight-bold text-danger" v-text="error('artifact')"></small>
       </div>
+      <a class="btn btn-outline-info mb-2 pt-3 pr-3 pl-3" href="<%= new_artifact_path(go_to_repair: true) %>">
+        <i class="fas fa-plug fa-lg"></i>
+      </a>
     </div>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label mt-3" for="repair_estimated_days"> <%= (t 'repairs_form.estimated_days_field') %> </label>
       <div class="col-sm-2">
-        <input v-model="repair.estimated_days" class="form-control mt-3" type="number" @input="clearError('estimated_days')">
+        <input v-model="repair.estimated_days" class="form-control mt-3" type="number" min="1" @input="clearError('estimated_days')">
         <small v-if="hasError('estimated_days')" class="font-weight-bold text-danger" v-text="error('estimated_days')"></small>
       </div>
     </div>
