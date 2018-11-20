@@ -11,7 +11,7 @@ class RepairsController < ApplicationController
 
   # GET /repairs?code=:code
   def query
-    @repair = Repair.find_by_code(params[:code])
+    @repair = Repair.find_by_code(params[:code].upcase)
 
     unless @repair.nil?
       @revisions = @repair.revisions.order(:created_at).page(params[:page])
