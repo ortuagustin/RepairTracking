@@ -37,6 +37,11 @@ es:
       one: "1"
       other: "%{count}"
   customers_form:
+    surname_field: "Apellido"
+    name_field: "Nombre"
+    phone_field: "Teléfono"
+    email_field: "Email"
+    notes_field: "Observaciones"
     submit: "Guardar"
     cancel: "Descartar"
   repairs_form:
