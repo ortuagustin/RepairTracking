@@ -24,7 +24,7 @@ class ArtifactsController < ApplicationController
   def create
     @artifact = Artifact.new(artifact_params)
 
-    if @customer.save
+    if @artifact.save
       if params[:go_to_repair].present?
         redirect_to new_repair_path(artifact_id: @artifact)
       else
