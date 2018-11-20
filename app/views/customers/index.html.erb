@@ -19,7 +19,7 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.name' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.phone' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.customer.email' %> </div> </th>
-        <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <th scope="col" colspan="3"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
 
@@ -33,6 +33,13 @@
           <td> <div class="text-center"> <%= customer.email %> </div> </td>
 
           <td style="border-right:0">
+            <a class="btn btn-outline-success" title="Agregar reparación" href="<%= new_repair_path(customer_id: customer) %>">
+              <i class="fas fa-plus"></i>
+              </span>
+            </a>
+          </td>
+
+          <td>
             <a class="btn btn-outline-warning" title="Editar" href="<%= edit_customer_path(customer) %>">
               <i class="fas fa-pencil-alt"></i>
             </a>
