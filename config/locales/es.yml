@@ -71,7 +71,7 @@ es:
     cancel: "Descartar"
   pieces:
     index:
-      title: "Piezas"
+      title: "Piezas de %{piece}"
       new: "Crear pieza"
       empty: "No hay piezas para el artefacto"
     actions:
@@ -130,7 +130,7 @@ es:
     text_button2: "Listado de clientes"
   customers:
     show:
-      title_r: "Reparaciones"
+      title_r: "Reparaciones de "
       new_r: "Nueva reparación"
       empty_r: "No hay reparaciones registradas"
       edit_c: "Modificar"

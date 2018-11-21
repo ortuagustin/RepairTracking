@@ -1,4 +1,4 @@
-<h1 class="mt-3 mb-4"><%= (t 'pieces.index.title') %></h1>
+<h1 class="mt-3 mb-4"><%= (t 'pieces.index.title', piece: @artifact.name) %></h1>
 
 <a class="btn btn-outline-info mb-5" href="<%= new_artifact_piece_path %>">
   <i class="fas fa-plug fa-lg"></i>
