@@ -1,8 +1,8 @@
 <h2 class="mt-3"> <%= t 'repairs_form.title' %> </h2> <hr>
 
 <repair-form
+  data-selected-artifact="<%= @selected_artifact || '' %>"
   data-selected-customer="<%= @selected_customer || '' %>"
-  data-selected-artifact="<%= '' %>"
   data-repair="<%= @repair.to_json %>"
   data-errors="<%= @repair.errors.to_json %>"
   repairs-url="<%= repairs_path %>"
