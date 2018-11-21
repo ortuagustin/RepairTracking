@@ -7,21 +7,16 @@
 <div class="row mt-4">
   <div class="col-4 ml-2"></div>
 
-  <a class="m-2 btn btn-outline-info" href="<%= root_path %>">
-    <i class="fas fa-at"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
+  <send-mail-button></send-mail-button>
 
-
-  <a class="m-2 btn btn-outline-info" href="<%= root_path %>">
+  <a class="m-2 btn btn-outline-info" href="#!">
     <i class="fas fa-print"></i>
     <span class="ml-1"><%= t 'repairs.show.print' %></span>
   </a>
-
- 
 </div>
 
 <hr>
+
 <div class="text-center mt-5 mb-3">
   <a class="btn btn-outline-dark" href="<%= root_path %>">
      <i class="fas fa-check-circle"></i>

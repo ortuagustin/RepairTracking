@@ -6,6 +6,7 @@ import DeleteButton from '../DeleteButton';
 import LogoutButton from '../LogoutButton';
 import RepairForm from '../RepairForm';
 import CustomerForm from '../CustomerForm';
+import SendMailButton from '../SendMailButton';
 
 Vue.use(TurbolinksAdapter)
 Vue.component('v-select', vSelect);
@@ -18,6 +19,6 @@ document.addEventListener('turbolinks:load', () => {
 
   new Vue({
     el: "#app",
-    components: { DeleteButton, LogoutButton, RepairForm, CustomerForm }
+    components: { DeleteButton, LogoutButton, RepairForm, CustomerForm, SendMailButton },
   })
 })
