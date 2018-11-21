@@ -38,7 +38,7 @@ class ArtifactsController < ApplicationController
   # PATCH/PUT /artifacts/:id
   def update
     if @artifact.update(artifact_params)
-      redirect_to @artifact, notice: (t 'artifacts.flash.updated')
+      redirect_to artifacts_path, notice: (t 'artifacts.flash.updated')
     else
       render :edit
     end
