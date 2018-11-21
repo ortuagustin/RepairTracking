@@ -27,14 +27,14 @@
       <% @customers.each do |customer| %>
         <tr align="center">
           <td> <div class="text-center"> <%= customer.id %> </div> </td>
-          <td> <div class="text-center"> <%= link_to customer.surname, customer %> </div> </td>
-          <td> <div class="text-center"> <%= link_to customer.name, customer %> </div> </td>
+          <td> <div class="text-center"> <%= link_to customer.surname, edit_customer_path(customer) %> </div> </td>
+          <td> <div class="text-center"> <%= link_to customer.name, edit_customer_path(customer) %> </div> </td>
           <td> <div class="text-center"> <%= customer.phone %> </div> </td>
           <td> <div class="text-center"> <%= customer.email %> </div> </td>
 
           <td style="border-right:0">
-            <a class="btn btn-outline-success" title="Agregar reparación" href="<%= new_repair_path(customer_id: customer) %>">
-              <i class="fas fa-plus"></i>
+            <a class="btn btn-outline-info" title="Reparaciones" href="<%= customer_path(customer) %>">
+              <i class="fas fa-wrench"></i>
               </span>
             </a>
           </td>
