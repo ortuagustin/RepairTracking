@@ -2,7 +2,7 @@
   <% if artifact.errors.any? %>
     <div class="ml-3">
       <ul class="text-danger font-weight-bold">
-        <% customer.errors.full_messages.each do |message| %>
+        <% artifact.errors.full_messages.each do |message| %>
           <li> <%= message %> </li>
         <% end %>
       </ul>
