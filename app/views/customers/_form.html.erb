@@ -1,59 +1,58 @@
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div class="ml-3">
-      <ul class="text-danger font-weight-bold">
-        <% customer.errors.full_messages.each do |message| %>
-          <li> <%= message %> </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<customer-form
+  data-customer="<%= @customer.to_json %>"
+  data-errors="<%= @customer.errors.to_json %>"
+  customers-url="<%= customers_path %>"
+  repairs-url="<%= new_repair_path %>"
+  go-to-repair="<%= params[:go_to_repair] %>"
+  inline-template
+>
+  <div v-if="customer">
+    <div class="row border mr-3 ml-3 mb-5 pt-4 pb-5">
+      <div class="col-6 container">
+        <div class="form-group">
+          <label class="col-form-label" for="customer_surname"> <%= (t 'customers_form.surname_field') %> (*) </label>
+          <input v-model="customer.surname" class="form-control" type="text" @input="clearError('surname')">
+          <small v-if="hasError('surname')" class="font-weight-bold text-danger" v-text="error('surname')"></small>
+        </div>
 
-  <div class="row border mr-3 ml-3 mb-5 pt-4 pb-5">
-    <div class="col-6 container ">
-    <div class="form-group">
-      <div><%= form.label :surname %> (*)</div>
-      <div><%= form.text_field :surname, class:"form-control" %></div>
-    </div>
+        <div class="form-group">
+          <label class="col-form-label" for="customer_name"> <%= (t 'customers_form.name_field') %> (*) </label>
+          <input v-model="customer.name" class="form-control" type="text" @input="clearError('name')">
+          <small v-if="hasError('name')" class="font-weight-bold text-danger" v-text="error('name')"></small>
+        </div>
 
-    <div class="form-group">
-      <div><%= form.label :name %> (*)</div>
-      <div><%= form.text_field :name, class:"form-control" %></div>
-    </div>
+        <div class="form-group">
+          <label class="col-form-label" for="customer_phone"> <%= (t 'customers_form.phone_field') %> (*) </label>
+          <input v-model="customer.phone" class="form-control" type="text" @input="clearError('phone')">
+          <small v-if="hasError('phone')" class="font-weight-bold text-danger" v-text="error('phone')"></small>
+        </div>
 
-    <div class="form-group">
-      <div><%= form.label :phone %> (*)</div>
-      <div><%= form.text_field :phone, placeholder: '(xxx)-xxx-xxxx', class:"form-control" %></div>
-    </div>
+        <div class="form-group">
+          <label class="col-form-label" for="customer_email"> <%= (t 'customers_form.email_field') %> (*) </label>
+          <input v-model="customer.email" class="form-control" type="text" @input="clearError('email')">
+          <small v-if="hasError('email')" class="font-weight-bold text-danger" v-text="error('email')"></small>
+        </div>
 
-    <div class="form-group">
-      <div><%= form.label :email %> (*)</div>
-      <div><%= form.text_field :email, placeholder: 'ejemplo@ejemplo.com', class:"form-control" %></div>
+        <span> (*) Datos obligatorios. </span>
+      </div>
+
+      <div class="col-6 container">
+        <div class="form-group">
+          <label class="col-form-label" for="customer_notes"> <%= (t 'customers_form.notes_field') %> </label>
+          <textarea v-model="customer.notes" class="form-control" rows="6" style="resize: none;"></textarea>
+          <small v-if="hasError('notes')" class="font-weight-bold text-danger" v-text="error('notes')"></small>
+        </div>
+
+        <div class="actions pt-4" style="text-align: center">
+          <button class="btn btn-info" type="submit" @click="submit">
+            <i class="fas fa-save"></i> <span> <%= (t 'customers_form.submit') %> </span>
+          </button>
+
+          <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+            <i class="fas fa-arrow-left"></i> <%= (t 'customers_form.cancel') %>
+          </a>
+        </div>
+      </div>
     </div>
-    <span>(*) Datos obligatorios. </span>
   </div>
-
-  <div class="col-6 container">
-    <div class="form-group">
-        <div><%= form.label :notes %></div>
-        <div><%= form.text_area :notes, rows:"6", style:"resize:none", class:"form-control" %></div>
-    </div>
-
-    <% if params[:go_to_repair] %>
-      <%= hidden_field_tag 'go_to_repair', value: true %>
-    <% end %>
-
-    <div class="actions pt-4" style="text-align: center">
-      <button class="btn btn-info" type="submit">
-        <i class="fas fa-save"></i> <span> <%= (t 'customers_form.submit') %> </span>
-      </button>
-
-      <a href="<%= customers_path%>" class="btn btn-outline-secondary">
-          <i class="fas fa-arrow-left"></i> <%= (t 'customers_form.cancel')%>
-        </a>
-    </div>
-  </div>
-</div>
-
-
-<% end %>
+</customer-form>

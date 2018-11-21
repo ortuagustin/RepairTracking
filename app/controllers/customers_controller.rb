@@ -21,27 +21,49 @@ class CustomersController < ApplicationController
   def edit
   end
 
+  # POST /repairs
+  # POST /repairs.json
+  def create
+    @repair = Repair.new(repair_params)
+
+    respond_to do |format|
+      if @repair.save
+        format.html { render 'show_code' }
+        format.json { render json: @repair, status: :ok }
+      else
+        format.html { render :new }
+        format.json { render json: @repair.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /customers
+  # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
 
-    if @customer.save
-      if params[:go_to_repair].present?
-        redirect_to new_repair_path(customer_id: @customer)
+    respond_to do |format|
+      if @customer.save
+        format.html { redirect_to @customer, notice: (t 'customers.flash.created') }
+        format.json { render json: @customer, status: :ok }
       else
-        redirect_to @customer, notice: (t 'customers.flash.created')
+        format.html { render :new }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
-    else
-      render :new
     end
   end
 
   # PATCH/PUT /customers/:id
+  # PATCH/PUT /customers/:id.json
   def update
-    if @customer.update(customer_params)
-      redirect_to @customer, notice: (t 'customers.flash.updated')
-    else
-      render :edit
+    respond_to do |format|
+      if @customer.update(customer_params)
+        format.html { redirect_to @customer, notice: (t 'customers.flash.updated') }
+        format.json { render json: @customer, status: :ok }
+      else
+        format.html { render :new }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
     end
   end
 
