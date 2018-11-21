@@ -4,7 +4,7 @@
   <h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
 <% end %>
 
-<h1 class="text-center font-weight-bold mt-5" style="color: orange;"> PENDIENTE </h1>
+<h1 class="text-center font-weight-bold mt-5" style="color: #ff6c00;"> PENDIENTE </h1>
 
 <div class="text-center mt-5">
   <p><%= t 'repairs.show.last_revision_date' %> <%= l(@repair.last_revision_date, format: "%d-%m-%Y") %> </p>
