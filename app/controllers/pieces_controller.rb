@@ -29,11 +29,12 @@ class PiecesController < ApplicationController
   # POST /pieces.json
   def create
     @piece = Piece.new(piece_params)
+    @artifact = @piece.artifact || Artifact.find(params[:artifact_id])
 
     respond_to do |format|
       if @piece.save
         format.html { redirect_to (artifact_pieces_path(artifact_id: params[:artifact_id])), notice: 'Piece was successfully created.' }
-        format.json { render :show, status: :created, location: @piece }
+        format.json { render json: @piece }
       else
         format.html { render :new }
         format.json { render json: @piece.errors, status: :unprocessable_entity }
