@@ -25,8 +25,8 @@
       <% @artifacts.each do |artifact| %>
         <tr align="center">
           <td> <div class="text-center"> <%= artifact.id %> </div> </td>
-          <td> <div class="text-center"> <%= link_to artifact.name, artifact %> </div> </td>
-          <td> <div class="text-center"> <%= link_to artifact.model, artifact %> </div> </td>
+          <td> <div class="text-center"> <%= link_to artifact.name, edit_artifact_path(artifact) %> </div> </td>
+          <td> <div class="text-center"> <%= link_to artifact.model, edit_artifact_path(artifact) %> </div> </td>
 
           <td style="border-right:0; width: 8%;">
             <a class="btn btn-outline-success" title="Ver piezas" href="<%= edit_artifact_path(artifact) %>">
@@ -35,7 +35,7 @@
           </td>
 
           <td style="border-left:0; border-right:0; width: 8%;">
-            <a class="btn btn-outline-primary" title="Ver tareas" href="<%= edit_artifact_path(artifact) %>">
+            <a class="btn btn-outline-primary" title="Ver tareas" href="#">
               <i class="fas fa-tasks"></i>
             </a>
           </td>
