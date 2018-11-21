@@ -46,6 +46,7 @@ es:
     cancel: "Descartar"
   repairs_form:
     title: "Registrar Reparación"
+    title_edit: "Editar Reparación"
     customer_field: "Cliente"
     artifact_field: "Artefacto"
     estimated_days_field: "Cant. días estimados"
