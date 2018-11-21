@@ -21,6 +21,32 @@ class RepairsController < ApplicationController
     end
   end
 
+  def edit
+    @repair = Repair.find(params[:id])
+    @selected_customer = @repair.customer
+    @selected_customer = { label: "#{@selected_customer.name}, #{@selected_customer.surname}", value: @selected_customer.id }.to_json
+
+    @selected_artifact = @repair.artifact
+    @selected_artifact = { label: @selected_artifact.name, value: @selected_artifact.id }.to_json
+
+    @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
+  end
+
+  def update
+    @repair = Repair.find(params[:id])
+
+    respond_to do |format|
+      if @repair.update(repair_params)
+        format.html { redirect_to artifact_repairs_path(params[:artifact_id]), notice: 'repair was successfully updated.' }
+        format.json { render json: @repair, status: :ok }
+      else
+        format.html { render :new }
+        format.json { render json: @repair.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /repairs/new
   def new
     @repair = Repair.new

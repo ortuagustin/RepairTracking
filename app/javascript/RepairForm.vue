@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ["data-repair", "dataErrors", "dataSelectedCustomer", "url"],
+  props: ["dataRepair", "dataErrors", "dataSelectedCustomer", "dataSelectedArtifact", "repairsUrl"],
 
   data() {
     return {
@@ -14,16 +14,44 @@ export default {
     this.errors = JSON.parse(this.dataErrors);
 
     if (this.dataSelectedCustomer != '' ) {
-      this.repair.customer = JSON.parse(this.dataSelectedCustomer);;
+      this.repair.customer = JSON.parse(this.dataSelectedCustomer);
+    }
+
+    if (this.dataSelectedArtifact != '' ) {
+      this.repair.artifact = JSON.parse(this.dataSelectedArtifact);
     }
   },
 
   methods: {
     submit() {
       axios
-        .post(this.url + ".json", this.formData())
-        .then(response => location.href = `${this.url}/${response.data.code}`)
+        axios[this.httpMethod()](this.url(), this.formData())
+        .then(response => this.handleSuccess(response.data))
         .catch(response => this.errors = response.data);
+    },
+
+    httpMethod() {
+      return this.isEditing() ? 'patch' : 'post';
+    },
+
+    url() {
+      if (this.isEditing()) {
+        return `${this.repairsUrl}/${this.repair.id}.json`;
+      }
+
+      return `${this.repairsUrl}.json`;
+    },
+
+    isEditing() {
+      return this.repair.id != null;
+    },
+
+    handleSuccess(repairData) {
+      if (this.isEditing()) {
+        location.href = `http://localhost:3000/customers/${this.repair.customer_id}`;
+      } else {
+        location.href = `${this.repairsUrl}/${repairData.code}`
+      }
     },
 
     error(field) {

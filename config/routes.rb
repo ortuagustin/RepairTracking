@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :artifacts do
       resources :pieces
     end
-    resources :repairs, only: [:new, :create, :show] do
+    resources :repairs, except: [:delete] do
       get 'query', on: :collection
     end
   # end
