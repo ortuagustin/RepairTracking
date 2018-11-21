@@ -1,108 +1,30 @@
 <h1 class="text-center mt-5"> <%= t 'repairs.show.repair_successfuly_saved', artifact: @repair.artifact.name %> </h1>
 <h4 class="text-center font-weight-bold mt-5" > <%= t 'repairs.show.customer_code', customer: @repair.customer.name %> </h4>
 <h1 class="text-center font-weight-bold mt-4" style="color: grey;"> <%= @repair.code %> </h1>
-<h4 class="text-center font-weight-bold mt-4 text-success" > <%= t 'repairs.show.customer_code_remainder' %> </h4>
+<hr>
+<h4 class="text-center font-weight-bold mt-4" > <%= t 'repairs.show.customer_code_remainder' %> </h4>
 
-<div class="mt-5"></div>
+<div class="row mt-4">
+  <div class="col-4 ml-2"></div>
 
-<div class="row">
-  <div class="col-2"></div>
-
-  <a class="m-2 btn btn-outline-success" href="<%= root_path %>">
+  <a class="m-2 btn btn-outline-info" href="<%= root_path %>">
     <i class="fas fa-at"></i>
     <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
   </a>
 
-  <a class="m-2 btn btn-success" href="<%= root_path %>">
-    <i class="fas fa-at"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
+
+  <a class="m-2 btn btn-outline-info" href="<%= root_path %>">
+    <i class="fas fa-print"></i>
+    <span class="ml-1"><%= t 'repairs.show.print' %></span>
   </a>
 
-  <a class="m-2 btn btn-outline-primary" href="<%= root_path %>">
-    <i class="fas fa-at"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-primary" href="<%= root_path %>">
-    <i class="fas fa-at"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
+ 
 </div>
 
-<div class="row">
-  <div class="col-2"></div>
-
-  <a class="m-2 btn btn-outline-success" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-success" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-outline-primary" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-primary" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-</div>
-
-<div class="row">
-  <div class="col-2"></div>
-
-  <a class="m-2 btn btn-outline-success" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-success" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-outline-primary" href="<%= root_path %>">
-    <i class="fas fa-share"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-primary" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-</div>
-
-<div class="row">
-  <div class="col-2"></div>
-
-  <a class="m-2 btn btn-outline-success" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-success" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-outline-primary" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-
-  <a class="m-2 btn btn-primary" href="<%= root_path %>">
-    <i class="fas fa-share-alt"></i>
-    <span class="ml-1"><%= t 'repairs.show.send_to_client' %></span>
-  </a>
-</div>
-
+<hr>
 <div class="text-center mt-5 mb-3">
   <a class="btn btn-outline-dark" href="<%= root_path %>">
-    <span> <%= (t 'repairs.show.exit') %> </span>
+     <i class="fas fa-check-circle"></i>
+     <span> <%= (t 'repairs.show.exit') %> </span>
   </a>
 </div>
