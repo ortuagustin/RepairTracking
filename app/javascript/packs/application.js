@@ -6,6 +6,7 @@ import DeleteButton from '../DeleteButton';
 import LogoutButton from '../LogoutButton';
 import RepairForm from '../RepairForm';
 import CustomerForm from '../CustomerForm';
+import ArtifactForm from '../ArtifactForm';
 import SendMailButton from '../SendMailButton';
 
 Vue.use(TurbolinksAdapter)
@@ -19,6 +20,6 @@ document.addEventListener('turbolinks:load', () => {
 
   new Vue({
     el: "#app",
-    components: { DeleteButton, LogoutButton, RepairForm, CustomerForm, SendMailButton },
+    components: { DeleteButton, LogoutButton, RepairForm, CustomerForm, ArtifactForm, SendMailButton },
   })
 })

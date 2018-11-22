@@ -68,6 +68,9 @@ es:
       updated: "Artefacto actualizado."
       deleted: "Artefacto eliminado."
   artifacts_form:
+    name_field: "Nombre"
+    model_field: "Modelo"
+    description_field: "Observaciones"
     submit: "Guardar"
     cancel: "Descartar"
   pieces:
