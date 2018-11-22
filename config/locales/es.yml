@@ -191,6 +191,7 @@ es:
     errors:
       format: "%{attribute} %{message}"
       messages:
+        record_invalid: "La validación falló: %{errors}"
         invalid_email: "'%{value}' no es un %{attribute} válido"
         invalid_phone: "'%{value}' no es un %{attribute} válido"
         accepted: "debe ser aceptado"
