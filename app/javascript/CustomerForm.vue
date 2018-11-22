@@ -60,7 +60,9 @@ export default {
     },
 
     error(field) {
-      return this.errors[field][0] || "";
+      const fieldErrors = this.errors[field];
+
+      return (fieldErrors && this.errors[field][0]) || "";
     },
 
     hasError(field) {
