@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { sessions: 'users/sessions' }
     resources :customers
     resources :artifacts do
-      resources :pieces
+      resources :pieces, except: [:show]
     end
     resources :repairs, except: [:delete] do
       get 'query', on: :collection
