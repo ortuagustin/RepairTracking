@@ -21,22 +21,6 @@ class CustomersController < ApplicationController
   def edit
   end
 
-  # POST /repairs
-  # POST /repairs.json
-  def create
-    @repair = Repair.new(repair_params)
-
-    respond_to do |format|
-      if @repair.save
-        format.html { render 'show_code' }
-        format.json { render json: @repair, status: :ok }
-      else
-        format.html { render :new }
-        format.json { render json: @repair.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # POST /customers
   # POST /customers.json
   def create
