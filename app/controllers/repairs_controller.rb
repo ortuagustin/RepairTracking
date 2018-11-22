@@ -38,7 +38,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.update(repair_params)
-        format.html { redirect_to artifact_repairs_path(params[:artifact_id]), notice: 'repair was successfully updated.' }
+        format.html { redirect_to artifact_repairs_path(params[:artifact_id]) }
         format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }
