@@ -21,8 +21,6 @@ export default {
 
   methods: {
     submit() {
-      console.log(this.url());
-
       axios[this.httpMethod()](this.url(), this.artifact)
         .then(response => this.handleSuccess(response.data))
         .catch(response => this.errors = response.data);
