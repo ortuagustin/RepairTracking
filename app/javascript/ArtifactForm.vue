@@ -57,7 +57,7 @@ export default {
 
         location.href = newUrl.toString();
       } else {
-        location.href = `${this.artifactsUrl}/${artifactData.id}`;
+        location.href = this.artifactsUrl;
       }
     },
 

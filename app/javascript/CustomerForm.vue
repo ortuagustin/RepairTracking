@@ -55,7 +55,7 @@ export default {
 
         location.href = newUrl.toString();
       } else {
-        location.href = `${this.customersUrl}/${customerData.id}`;
+        location.href = this.customersUrl;
       }
     },
 
