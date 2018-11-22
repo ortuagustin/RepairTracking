@@ -1,4 +1,6 @@
 <script>
+import { AsYouType, parsePhoneNumber } from 'libphonenumber-js'
+
 export default {
   props: ["dataCustomer", "dataArtifactId", "dataErrors", "goToRepair", "customersUrl", "repairsUrl"],
 
@@ -19,7 +21,39 @@ export default {
     }
   },
 
+  computed: {
+    validPhone() {
+      const phone = this.parsedPhone();
+      if (phone) {
+        return phone.isValid();
+      }
+
+      return false;
+    },
+
+    formattedPhone() {
+      return new AsYouType('AR').input(this.customer.phone)
+    },
+  },
+
   methods: {
+    onPhoneInput() {
+      if (this.validPhone) {
+        this.customer.phone = this.formattedPhone;
+        this.clearError('phone');
+      } else {
+        this.errors['phone'] = [`${this.customer.phone} no es un teléfono válido`];
+      }
+    },
+
+    parsedPhone() {
+      try {
+        return parsePhoneNumber(this.customer.phone, 'AR');
+      } catch (error) {
+        return null;
+      }
+    },
+
     submit() {
       axios[this.httpMethod()](this.url(), this.customer)
         .then(response => this.handleSuccess(response.data))

@@ -24,7 +24,7 @@
 
         <div class="form-group">
           <label class="col-form-label" for="customer_phone"> <%= (t 'customers_form.phone_field') %> (*) </label>
-          <input v-model="customer.phone" class="form-control" type="text" @input="clearError('phone')">
+          <input v-model="customer.phone" class="form-control" type="text" @input="onPhoneInput">
           <small v-if="hasError('phone')" class="font-weight-bold text-danger" v-text="error('phone')"></small>
         </div>
 
