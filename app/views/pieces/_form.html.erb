@@ -30,8 +30,8 @@
       <i class="fas fa-save"></i> <span> <%= (t 'pieces_form.submit') %> </span>
     </button>
 
-    <a href="<%= artifact_pieces_path(artifact_id: @artifact.id) %>" class="btn btn-outline-secondary">
+    <button class="btn btn-outline-secondary" @click="goBack">
       <i class="fas fa-arrow-left"></i> <%= (t 'pieces_form.cancel')%>
-    </a>
+    </button>
   </div>
 <% end %>

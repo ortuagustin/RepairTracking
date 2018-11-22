@@ -39,13 +39,11 @@
     <div class="text-center mr-5 pr-5 mt-5">
       <button class="btn btn-info mr-2" type="submit" @click="submit">
         <i class="fas fa-save"></i> <span> <%= (t 'repairs_form.submit') %> </span>
-
       </button>
 
-      <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+      <button class="btn btn-outline-secondary" @click="goBack">
         <i class="fas fa-arrow-left"></i> <span> <%= (t 'repairs_form.cancel') %> </span>
-
-      </a>
+      </button>
     </div>
   </div>
 </repair-form>

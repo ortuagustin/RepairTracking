@@ -49,9 +49,9 @@
             <i class="fas fa-save"></i> <span> <%= (t 'customers_form.submit') %> </span>
           </button>
 
-          <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+          <button class="btn btn-outline-secondary" @click="goBack">
             <i class="fas fa-arrow-left"></i> <%= (t 'customers_form.cancel') %>
-          </a>
+          </button>
         </div>
       </div>
     </div>
