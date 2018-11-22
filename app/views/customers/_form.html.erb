@@ -1,8 +1,9 @@
 <customer-form
   data-customer="<%= @customer.to_json %>"
+  data-artifact-id="<%= params[:artifact_id] || '' %>"
   data-errors="<%= @customer.errors.to_json %>"
-  customers-url="<%= customers_path %>"
-  repairs-url="<%= new_repair_path %>"
+  customers-url="<%= customers_url %>"
+  repairs-url="<%= new_repair_url %>"
   go-to-repair="<%= params[:go_to_repair] %>"
   inline-template
 >

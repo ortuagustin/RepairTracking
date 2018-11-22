@@ -1,17 +1,22 @@
 <script>
 export default {
-  props: ["dataCustomer", "dataErrors", "goToRepair", "customersUrl", "repairsUrl"],
+  props: ["dataCustomer", "dataArtifactId", "dataErrors", "goToRepair", "customersUrl", "repairsUrl"],
 
   data() {
     return {
       errors: [],
-      customer: null
+      customer: null,
+      artifactId: null,
     };
   },
 
   mounted() {
     this.customer = JSON.parse(this.dataCustomer);
     this.errors = JSON.parse(this.dataErrors);
+
+    if (this.dataArtifactId != '') {
+      this.artifactId = JSON.parse(this.dataArtifactId);
+    }
   },
 
   methods: {
@@ -39,7 +44,16 @@ export default {
 
     handleSuccess(customerData) {
       if ((this.goToRepair) && (! this.isEditing())) {
-        location.href = `${this.repairsUrl}/?customer_id=${customerData.id}`
+        let newUrl = new URL(this.repairsUrl);
+
+        newUrl.searchParams.append('go_to_repair', true);
+        newUrl.searchParams.append('customer_id', customerData.id);
+
+        if (this.artifactId) {
+          newUrl.searchParams.append('artifact_id', this.artifactId);
+        }
+
+        location.href = newUrl.toString();
       } else {
         location.href = `${this.customersUrl}/${customerData.id}`;
       }
