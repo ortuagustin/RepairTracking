@@ -12,6 +12,14 @@ import SendMailButton from '../SendMailButton';
 Vue.use(TurbolinksAdapter)
 Vue.component('v-select', vSelect);
 
+Vue.mixin({
+  methods: {
+    goBack() {
+      history.back();
+    },
+  },
+});
+
 window.axios = axios;
 
 document.addEventListener('turbolinks:load', () => {
