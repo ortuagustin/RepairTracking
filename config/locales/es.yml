@@ -75,7 +75,7 @@ es:
     cancel: "Descartar"
   pieces:
     index:
-      title: "Piezas de %{piece}"
+      title: "Piezas de %{artifact} %{model}"
       new: "Crear pieza"
       empty: "No hay piezas para el artefacto"
     actions:
