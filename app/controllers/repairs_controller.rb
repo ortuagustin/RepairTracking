@@ -30,7 +30,7 @@ class RepairsController < ApplicationController
     @selected_customer = { label: "#{@selected_customer.name}, #{@selected_customer.surname}", value: @selected_customer.id }.to_json
 
     @selected_artifact = @repair.artifact
-    @selected_artifact = { label: @selected_artifact.name, value: @selected_artifact.id }.to_json
+    @selected_artifact = { label: "#{@selected_artifact.name}, #{@selected_artifact.model}", value: @selected_artifact.id }.to_json
 
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
     @artifacts = Artifact.all.collect { |artifact| { label: "#{artifact.name}, #{artifact.model}", value: artifact.id } }.to_json
@@ -61,7 +61,7 @@ class RepairsController < ApplicationController
 
     if params[:artifact_id]
       @selected_artifact = Artifact.find(params[:artifact_id])
-      @selected_artifact = { label: @selected_artifact.name, value: @selected_artifact.id }.to_json
+      @selected_artifact = { label: "#{@selected_artifact.name}, #{@selected_artifact.model}", value: @selected_artifact.id }.to_json
     end
 
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
