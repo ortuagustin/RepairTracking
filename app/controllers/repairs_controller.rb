@@ -30,7 +30,7 @@ class RepairsController < ApplicationController
     @selected_artifact = { label: @selected_artifact.name, value: @selected_artifact.id }.to_json
 
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
-    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: "#{artifact.name}, #{artifact.model}", value: artifact.id } }.to_json
   end
 
   def update
@@ -62,7 +62,7 @@ class RepairsController < ApplicationController
     end
 
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
-    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: "#{artifact.name}, #{artifact.model}", value: artifact.id } }.to_json
   end
 
   # POST /repairs
