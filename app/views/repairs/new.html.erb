@@ -16,8 +16,9 @@
         <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
       </div>
 
-      <a class="btn btn-outline-info mb-2 pt-3" :href="newCustomerPath">
+      <a class="btn btn-outline-info mb-2" :href="newCustomerPath">
         <i class="fas fa-user-plus fa-lg"></i>
+        <small class="ml-1">Nuevo Cliente</small>
       </a>
     </div>
 
@@ -27,8 +28,9 @@
         <v-select v-model="repair.artifact" :options="<%= @artifacts %>" @input="clearError('artifact')"></v-select>
         <small v-if="hasError('artifact')" class="font-weight-bold text-danger" v-text="error('artifact')"></small>
       </div>
-      <a class="btn btn-outline-info mb-2 pt-3 pr-3 pl-3" :href="newArtifactPath">
+      <a class="btn btn-outline-info mb-2" :href="newArtifactPath">
         <i class="fas fa-plug fa-lg"></i>
+        <small class="ml-1">Nuevo Artefacto</small>
       </a>
     </div>
 

@@ -15,6 +15,10 @@
  *= require_self
  */
 
-.fas_color {
+ .fas_color {
   color: rgb(23, 162, 184);
+}
+
+.dropdown-toggle {
+  height: 2.25em;
 }
