@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
-  <h2 class="text-center mt-5"> <%= t 'repairs.show.title_admin', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+  <h2 class="text-center mt-5"> <%= t 'repairs.show.title_admin', customer: @repair.customer.name, artifact: @artifact.name, model: @artifact.model %> </h2>
 <% else %>
-  <h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @repair.artifact.name %> </h2>
+  <h2 class="text-center mt-5"> <%= t 'repairs.show.title', customer: @repair.customer.name, artifact: @artifact.name, model: @artifact.model %> </h2>
 <% end %>
 
 <h1 class="text-center font-weight-bold mt-5" style="color: #ff6c00;"> PENDIENTE </h1>
