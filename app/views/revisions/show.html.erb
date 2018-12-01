@@ -1,6 +1,4 @@
 <h1>Holis, soy app/views/revisions/show.html.erb</h1>
 
-<p id="notice"><%= notice %></p>
-
 <%= link_to 'Edit', edit_revision_path(@revision) %> |
-<%= link_to 'Back', revisions_path %>
+<%= link_to 'Back', repair_revisions_path(@revision.repair) %>

@@ -5,4 +5,4 @@
 <%= render 'form', revision: @revision %>
 
 <%= link_to 'Show', @revision %> |
-<%= link_to 'Back', revisions_path %>
+<%= link_to 'Back', repair_revisions_path(@revision.repair) %>

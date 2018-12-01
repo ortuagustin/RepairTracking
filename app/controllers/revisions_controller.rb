@@ -9,8 +9,8 @@ class RevisionsController < ApplicationController
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
   end
 
-  # GET /revisions/1
-  # GET /revisions/1.json
+  # GET /revisions/:id
+  # GET /revisions/:id.json
   def show
   end
 
@@ -19,7 +19,7 @@ class RevisionsController < ApplicationController
     @revision = Revision.new(repair: @repair)
   end
 
-  # GET /revisions/1/edit
+  # GET /revisions/:id/edit
   def edit
   end
 
@@ -39,8 +39,8 @@ class RevisionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /revisions/1
-  # PATCH/PUT /revisions/1.json
+  # PATCH/PUT /revisions/:id
+  # PATCH/PUT /revisions/:id.json
   def update
     respond_to do |format|
       if @revision.update(revision_params)
@@ -53,12 +53,12 @@ class RevisionsController < ApplicationController
     end
   end
 
-  # DELETE /revisions/1
-  # DELETE /revisions/1.json
+  # DELETE /revisions/:id
+  # DELETE /revisions/:id.json
   def destroy
     @revision.destroy
 
-    redirect_to revisions_path(@revision.repair_id), notice: (t 'revisions.flash.deleted'), status: 303
+    redirect_to repair_revisions_path(repair_id: @revision.repair_id), notice: (t 'revisions.flash.deleted'), status: 303
   end
 private
   def set_repair
