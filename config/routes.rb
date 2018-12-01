@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :customers
     resources :artifacts do
       resources :pieces, except: [:show]
+      resources :tasks, shallow: true
     end
     resources :repairs, except: [:delete] do
       get 'query', on: :collection
