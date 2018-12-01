@@ -7,14 +7,19 @@ class RepairsController < ApplicationController
     @repairs = Repair.order(:created_at).page(params[:page])
   end
 
-  # GET /repairs/1
-  # GET /repairs/1.json
+  # GET /repairs/:id
+  # GET /repairs/:id.json
   def show
-    @repair = Repair.find_by_code(params[:id])
+    @repair = Repair.find(params[:id])
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
     @artifact = @repair.artifact
+  end
 
-    render 'show_code'
+  # GET /repairs/:code/created
+  # GET /repairs/:code/created.json
+  def created
+    @repair = Repair.find_by_code(params[:code])
+    @artifact = @repair.artifact
   end
 
   # GET /repairs?code=:code
@@ -81,7 +86,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.save
-        format.html { render 'show_code' }
+        format.html { render 'created' }
         format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }

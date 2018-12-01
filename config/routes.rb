@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   # end
 
+  get 'repairs/:code/created', to: 'repairs#created'
+
   authenticated :user do
     root to: "home#dashboard", as: :authenticated_root
   end

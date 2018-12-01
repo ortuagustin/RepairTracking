@@ -76,7 +76,7 @@ export default {
       if (this.isEditing()) {
         location.href = `http://localhost:3000/customers/${this.repair.customer_id}`;
       } else {
-        location.href = `${this.repairsUrl}/${repairData.code}`
+        location.href = `${this.repairsUrl}/${repairData.code}/created`
       }
     },
 
