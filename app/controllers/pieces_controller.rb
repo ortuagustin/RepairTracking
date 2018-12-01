@@ -11,8 +11,7 @@ class PiecesController < ApplicationController
 
   # GET /pieces/new
   def new
-    @piece = Piece.new
-    @piece.artifact = @artifact
+    @piece = Piece.new(artifact: @artifact)
   end
 
   # GET /pieces/:id/edit
@@ -23,11 +22,10 @@ class PiecesController < ApplicationController
   # POST /pieces.json
   def create
     @piece = Piece.new(piece_params)
-    @artifact = @piece.artifact || Artifact.find(artifact_id)
 
     respond_to do |format|
       if @piece.save
-        format.html { redirect_to (artifact_pieces_path(artifact_id: artifact_id)), notice: (t 'pieces.flash.created')}
+        format.html { redirect_to (artifact_pieces_path(artifact_id: @piece.artifact_id)), notice: (t 'pieces.flash.created')}
         format.json { render json: @piece }
       else
         format.html { render :new }
@@ -41,7 +39,7 @@ class PiecesController < ApplicationController
   def update
     respond_to do |format|
       if @piece.update(piece_params)
-        format.html { redirect_to artifact_pieces_path(artifact_id), notice: (t 'pieces.flash.updated') }
+        format.html { redirect_to artifact_pieces_path(artifact_id: @piece.artifact_id), notice: (t 'pieces.flash.updated') }
         format.json { render :show, status: :ok, location: @piece }
       else
         format.html { render :edit }
@@ -55,20 +53,15 @@ class PiecesController < ApplicationController
   def destroy
     @piece.destroy
 
-    redirect_to artifact_pieces_path(artifact_id), notice: (t 'pieces.flash.deleted'), status: 303
+    redirect_to artifact_pieces_path(@piece.artifact_id), notice: (t 'pieces.flash.deleted'), status: 303
   end
-
 private
   def set_piece
     @piece = Piece.find(params[:id])
   end
 
   def set_artifact
-    @artifact = Artifact.find(artifact_id)
-  end
-
-  def artifact_id
-    params[:artifact_id]
+    @artifact = Artifact.find(params[:artifact_id])
   end
 
   def piece_params
