@@ -53,11 +53,6 @@ class CustomerTest < ActiveSupport::TestCase
     assert @agus.invalid?
   end
 
-  test "should not accept customer with a non numeric phone" do
-    @agus.phone = 'test'
-    assert @agus.invalid?
-  end
-
   test "deleting a customer should delete associated repairs" do
     agus = customers(:agus)
 
