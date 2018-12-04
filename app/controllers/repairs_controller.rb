@@ -4,7 +4,7 @@ class RepairsController < ApplicationController
   # GET /repairs
   # GET /repairs
   def index
-    @repairs = Repair.order(:created_at).page(params[:page])
+    @repairs = Repair.where(state: 'PENDIENTE').order(:created_at).page(params[:page])
   end
 
   # GET /repairs/:id
