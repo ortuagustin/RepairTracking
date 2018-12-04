@@ -91,6 +91,24 @@ es:
   pieces_form:
     submit: "Guardar"
     cancel: "Descartar"
+  tasks:
+    index:
+      title: "Tareas de %{artifact} %{model}"
+      new: "Crear tarea"
+      empty: "No hay tareas para el artefacto"
+    actions:
+      delete:
+        title: "Eliminar tarea?"
+        text: "Está seguro que desea eliminar a <em>%{name}</em>?"
+        confirm: "Si"
+        cancel: "No"
+    flash:
+      created: "Tarea creada."
+      updated: "Tarea actualizada."
+      deleted: "Tarea eliminada."
+  tasks_form:
+    submit: "Guardar"
+    cancel: "Descartar"
   repairs:
     flash:
       created: "Reparación creada"

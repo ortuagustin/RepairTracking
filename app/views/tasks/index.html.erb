@@ -1,33 +1,53 @@
-<h1>Holis, soy app/views/tasks/index.html.erb</h1>
+<h1 class="mt-3 mb-4"><%= (t 'tasks.index.title', artifact: @artifact.name, model: @artifact.model) %></h1>
 
-<h1>Tasks</h1>
+<a class="btn btn-outline-info mb-5" href="<%= new_artifact_task_path %>">
+  <i class="fas fa-plus fa-lg"></i>
+  <span class="ml-1"><%= t 'tasks.index.new' %></span>
+</a>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Cost</th>
-      <th colspan="2" class="text-center">Artifact</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.cost %></td>
-        <td><%= "#{task.artifact.name} #{task.artifact.model}" %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% if @tasks.empty? %>
+  <div class="text-center text-muted">
+    <i class="fas fa-cogs fa-5x mt-5"></i>
+    <p class="mt-3"><%= t 'tasks.index.empty' %></p>
+  </div>
+<% else %>
+  <table class="table table-bordered">
+    <thead>
+      <tr style="background-color:rgba(128, 128, 128, 0.3)">
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.task.id' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.task.name' %> </div> </th>
+        <th scope="col" colspan="4"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr align="center">
+          <td> <div class="text-center"> <%= task.id %> </div> </td>
+          <td>  <div class="text-center"> <%= link_to task.name, edit_task_path(id: task.id) %> </div> </td>
 
-<%= link_to 'New Task', new_artifact_task_path %>
+          <td style="border-left:0;  border-right:0;width: 8%;">
+            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_task_path(id: task.id) %>">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+          </td>
+
+          <td style="border-left:0; width: 8%;">
+            <delete-button
+              url="<%= task_path(id: task.id) %>"
+              title="<%= t 'tasks.actions.delete.title' %>"
+              text="<%= t 'tasks.actions.delete.text', name: task.name %>"
+              type="<%= 'btn btn-danger' %>"
+              confirm-button="<%= t 'tasks.actions.delete.confirm' %>"
+              cancel-button="<%= t 'tasks.actions.delete.cancel' %>"
+            >
+            </delete-button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @tasks, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
+<% end %>
+
