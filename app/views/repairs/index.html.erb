@@ -23,6 +23,7 @@
           <td> <div class="text-center font-weight-bold"> <%= repair.code %> </div> </td>
           <td> <div class="text-center"> <%= link_to repair.customer.name, edit_customer_path(repair.customer) %> </div> </td>
           <td> <div class="text-center"> <%= link_to "#{repair.artifact.name}, #{repair.artifact.model}", edit_artifact_path(repair.artifact.id) %> </div> </td>
+
           <td>
              <% if repair.state == 'PENDIENTE' %>
                 <div class="text-center font-weight-bold" style="color: #ff6c00;"> <%= repair.state %> </div>

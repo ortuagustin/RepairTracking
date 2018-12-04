@@ -1,4 +1,4 @@
-<h1 class="mt-3 mb-4"><%= (t 'revisions.index.title', revision: @revision.notes, model: @revision.repair.artifact.model) %></h1>
+<h1 class="mt-3 mb-4"><%= (t 'revisions.index.title', coderepair: @repair.code) %></h1>
 
 <a class="btn btn-outline-info mb-5" href="<%= new_repair_revision_path %>">
   <i class="fas fa-plus fa-lg"></i>
