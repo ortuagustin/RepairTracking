@@ -1,17 +1,12 @@
 class RevisionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_repair, only: [:index, :new]
-  before_action :set_revision, only: [:show, :edit, :update, :destroy]
+  before_action :set_revision, only: [:edit, :update, :destroy]
 
   # GET /repairs/:repair_id/revisions
   # GET /repairs/:repair_id/revisions.json
   def index
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
-  end
-
-  # GET /revisions/:id
-  # GET /revisions/:id.json
-  def show
   end
 
   # GET /repairs/:repair_id/revisions/new

@@ -25,13 +25,14 @@
       <% @revisions.each do |revision| %>
         <tr align="center">
           <td> <div class="text-center"> <%= revision.id %> </div> </td>
-          <td>  <div class="text-center"> <%= link_to revision.notes, show_revision_path(id: revision.id) %> </div> </td>
+          <td> <div class="text-center"> <%= l(revision.created_at, format: "%d-%m-%Y") %> </div> </td>
+          <td> <div class="text-center"> <%= revision.notes %> </div> </td>
 
           <td style="border-left:0; width: 8%;">
             <delete-button
-              url="<%= revision_path(id: revision.id) %>"
+              url="<%= revision_path(revision) %>"
               title="<%= t 'revisions.actions.delete.title' %>"
-              text="<%= t 'revisions.actions.delete.text', name: revisions.notes %>"
+              text="<%= t 'revisions.actions.delete.text', name: revision.notes %>"
               type="<%= 'btn btn-danger' %>"
               confirm-button="<%= t 'revisions.actions.delete.confirm' %>"
               cancel-button="<%= t 'revisions.actions.delete.cancel' %>"

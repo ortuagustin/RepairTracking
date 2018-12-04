@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
 
     resources :repairs, except: [:delete] do
-      resources :revisions, shallow: true
+      resources :revisions, shallow: true, except: [:show]
       get 'query', on: :collection
     end
   # end
