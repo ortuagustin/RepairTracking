@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_artifact, except: [:destroy]
+  before_action :set_artifact, except: [:destroy, :edit, :update]
 
   # GET /artifacts/:artifact_id/tasks
   # GET /artifacts/:artifact_id/tasks.json
@@ -27,6 +27,7 @@ class TasksController < ApplicationController
   # POST /artifacts/:artifact_id/tasks.json
   def create
     @task = Task.new(task_params)
+    @artifact = @task.artifact
 
     respond_to do |format|
       if @task.save
