@@ -1,10 +1,10 @@
 class Repair < ApplicationRecord
   has_many :revisions, dependent: :delete_all
+
   belongs_to :customer
   belongs_to :artifact
 
-  after_create :generate_repair_code
-  before_save :set_pending_state
+  after_create :generate_repair_code, :set_pending_state, :set_cost
 
   validates :estimated_days, numericality: { only_integer: true }
 
@@ -30,8 +30,29 @@ private
     self.state ||= 'PENDIENTE'
   end
 
+  def set_cost
+    self.cost = pieces_cost + tasks_cost
+    self.save!
+  end
+
   def generate_repair_code
     self.code = "#{customer.initials}#{id}"
     self.save!
+  end
+
+  def pieces
+    artifact.pieces
+  end
+
+  def tasks
+    artifact.tasks
+  end
+
+  def pieces_cost
+    pieces.sum(:cost)
+  end
+
+  def tasks_cost
+    tasks.sum(:cost)
   end
 end
