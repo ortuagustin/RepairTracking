@@ -46,3 +46,9 @@
 
   <%= paginate @revisions, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
 <% end %>
+
+<div class="container text-center mt-5">
+  <a class="btn btn-outline-secondary" href="<%= customer_path(@repair.customer) %>">
+    <i class="fas fa-arrow-left"></i> Volver
+  </a>
+</div>
