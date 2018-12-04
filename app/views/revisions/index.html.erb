@@ -25,7 +25,7 @@
       <% @revisions.each do |revision| %>
         <tr align="center">
           <td> <div class="text-center"> <%= revision.id %> </div> </td>
-          <td>  <div class="text-center"> <%= link_to revision.notes, show_revision_path(id: revision.id) %> </div> </td>
+          <td>  <div class="text-center"> <%= link_to revision.notes, revision_path(revision) %> </div> </td>
 
           <td style="border-left:0; width: 8%;">
             <delete-button

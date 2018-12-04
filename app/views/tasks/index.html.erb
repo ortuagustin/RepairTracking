@@ -16,6 +16,7 @@
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.task.id' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.task.name' %> </div> </th>
+         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.task.cost' %> </div> </th>
         <th scope="col" colspan="4"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
         <tr align="center">
           <td> <div class="text-center"> <%= task.id %> </div> </td>
           <td>  <div class="text-center"> <%= link_to task.name, edit_task_path(id: task.id) %> </div> </td>
+          <td>  <div class="text-center"> <%= task.cost %> </div> </td>
 
           <td style="border-left:0;  border-right:0;width: 8%;">
             <a class="btn btn-outline-warning" title="Editar" href="<%= edit_task_path(id: task.id) %>">

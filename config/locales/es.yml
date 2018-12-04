@@ -173,6 +173,7 @@ es:
     codigo_field: "Ingresar código"
     text_button: "Nueva reparación"
     text_button2: "Consultar"
+    text_button3: "Listado de reparaciones"
   dashboard_cliente:
     title: "Cliente"
     text_button: "Crear cliente"
@@ -241,6 +242,11 @@ es:
         created_at: "Fecha revisión"
         notes: "Notas"
         notes_form: "Ingrese detalle de la revisión"
+      task:
+        id: "N°"
+        name: "Nombre"
+        description: "Descripción"
+        cost: "Costo"
     errors:
       format: "%{attribute} %{message}"
       messages:
