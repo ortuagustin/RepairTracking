@@ -109,6 +109,27 @@ es:
   tasks_form:
     submit: "Guardar"
     cancel: "Descartar"
+
+  revisions:
+    index:
+      title: "Revisiones de %{coderepair}"
+      new: "Crear revisión"
+      empty: "No hay revisiones cargadas para la reparación"
+    actions:
+      delete:
+        title: "Eliminar revisión?"
+        text: "Está seguro que desea eliminar la revisión?"
+        confirm: "Si"
+        cancel: "No"
+    flash:
+      created: "Revisión creada."
+      updated: "Revisión actualizada."
+      deleted: "Revisión eliminada."
+  revisions_form:
+    submit: "Guardar"
+    cancel: "Descartar"
+    finalize: "Guardar y finalizar reparación"
+
   repairs:
     flash:
       created: "Reparación creada"
@@ -215,7 +236,8 @@ es:
         description: "Descripción"
       revision:
         created_at: "Fecha revisión"
-        notes: "Observación"
+        notes: "Notas"
+        notes_form: "Ingrese detalle de la revisión"
     errors:
       format: "%{attribute} %{message}"
       messages:
