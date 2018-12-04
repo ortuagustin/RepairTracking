@@ -10,7 +10,8 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.code' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.customer' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.artifact' %> </div> </th>
-        <th scope="col"> <div class="text-center"> Estado </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.state' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
         <th scope="col" colspan="3"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
@@ -18,11 +19,19 @@
     <tbody>
       <% @repairs.each do |repair| %>
         <tr align="center">
-          <td> <div class="text-center"> <%= repair.code %> </div> </td>
+          <td> <div class="text-center font-weight-bold"> <%= repair.code %> </div> </td>
           <td> <div class="text-center"> <%= link_to repair.customer.name, edit_customer_path(repair.customer) %> </div> </td>
           <td> <div class="text-center"> <%= link_to "#{repair.artifact.name}, #{repair.artifact.model}", edit_artifact_path(repair.artifact.id) %> </div> </td>
-          <td> <div class="text-center" style="color: #ff6c00"><b> PENDIENTE </b></div> </td>
 
+          <td>
+             <% if repair.state == 'PENDIENTE' %>
+                <div class="text-center font-weight-bold" style="color: #ff6c00;"> <%= repair.state %> </div>
+              <% else %>
+                <div class="text-center font-weight-bold" style="color: green;"> <%= repair.state %> </div>
+              <% end %>
+          </td>
+
+          <td> <div class="text-center"> <%= l(repair.created_at, format: "%d-%m-%Y") %> </div> </td>
           <td style="border-right:0; width: 8%;">
             <a class="btn btn-outline-success" title="Ver revisiones" href="<%= repair_revisions_path(repair) %>">
               <i class="fas fa-cogs"></i>

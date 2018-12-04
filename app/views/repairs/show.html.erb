@@ -8,7 +8,11 @@
   </h2>
 <% end %>
 
-<h1 class="text-center font-weight-bold mt-5" style="color: #ff6c00;"> PENDIENTE </h1>
+<% if @repair.state == 'PENDIENTE' %>
+  <h1 class="text-center font-weight-bold mt-5" style="color: #ff6c00;"> <%= @repair.state %> </h1>
+<% else %>
+  <h1 class="text-center font-weight-bold mt-5" style="color: green;"> <%= @repair.state %> </h1>
+<% end %>
 
 <div class="text-center mt-5">
   <p> <%= t 'repairs.show.last_revision_date' %> <%= l(@repair.last_revision_date, format: "%d-%m-%Y") %> </p>
