@@ -25,7 +25,7 @@
 
 <% if @revisions.empty? %>
   <% if user_signed_in? %>
-    <a class="btn btn-outline-info mt-2" href="#!">
+    <a class="btn btn-outline-info mt-2" href="<%= new_repair_revision_path(@repair) %>">
       <i class="fas fa-plus"></i>
       <span class="ml-1"> <%= t 'repairs.show.new' %> </span>
     </a>
@@ -37,7 +37,7 @@
   </div>
 <% else %>
   <% if user_signed_in? %>
-    <a class="btn btn-outline-info" href="#!">
+    <a class="btn btn-outline-info" href="<%= new_repair_revision_path(@repair) %>">
       <i class="fas fa-plus"></i>
       <span class="ml-1"> <%= t 'repairs.show.new' %> </span>
     </a>
@@ -48,6 +48,9 @@
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
         <th scope="col" style="width: 25%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
+        <% if user_signed_in? %>
+          <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <% end %>
       </tr>
     </thead>
 
@@ -56,6 +59,20 @@
         <tr>
           <td> <div class="text-center"> <%= l(revision.created_at, format: "%d-%m-%Y") %> </div> </td>
           <td> <%= revision.notes %> </div> </td>
+
+          <% if user_signed_in? %>
+            <td style="border-left:0; width: 8%;">
+              <delete-button
+                url="<%= revision_path(revision) %>"
+                title="<%= t 'revisions.actions.delete.title' %>"
+                text="<%= t 'revisions.actions.delete.text', name: revision.notes %>"
+                type="<%= 'btn btn-danger' %>"
+                confirm-button="<%= t 'revisions.actions.delete.confirm' %>"
+                cancel-button="<%= t 'revisions.actions.delete.cancel' %>"
+              >
+              </delete-button>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
