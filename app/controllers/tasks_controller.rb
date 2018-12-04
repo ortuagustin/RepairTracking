@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_artifact, only: [:index, :new]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_artifact
 
   # GET /artifacts/:artifact_id/tasks
   # GET /artifacts/:artifact_id/tasks.json

@@ -1,7 +1,7 @@
 class PiecesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
-  before_action :set_artifact, only: [:index, :new, :edit, :destroy]
+  before_action :set_artifact
 
   # GET /pieces
   # GET /pieces.json
