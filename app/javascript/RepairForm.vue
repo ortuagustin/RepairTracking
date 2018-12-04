@@ -22,6 +22,32 @@ export default {
     }
   },
 
+  computed: {
+    newCustomerPath: function() {
+      let url = new URL('http://localhost:3000/customers/new');
+
+      url.searchParams.append('go_to_repair', true);
+
+      if (this.selectedArtifact()) {
+        url.searchParams.append('artifact_id', this.selectedArtifact());
+      }
+
+      return url.toString();
+    },
+
+    newArtifactPath: function() {
+      let url = new URL('http://localhost:3000/artifacts/new');
+
+      url.searchParams.append('go_to_repair', true);
+
+      if (this.selectedCustomer()) {
+        url.searchParams.append('customer_id', this.selectedCustomer());
+      }
+
+      return url.toString();
+    },
+  },
+
   methods: {
     submit() {
       axios
@@ -50,12 +76,14 @@ export default {
       if (this.isEditing()) {
         location.href = `http://localhost:3000/customers/${this.repair.customer_id}`;
       } else {
-        location.href = `${this.repairsUrl}/${repairData.code}`
+        location.href = `${this.repairsUrl}/${repairData.code}/created`
       }
     },
 
     error(field) {
-      return this.errors[field][0] || "";
+      const fieldErrors = this.errors[field];
+
+      return (fieldErrors && this.errors[field][0]) || "";
     },
 
     hasError(field) {

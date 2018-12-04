@@ -1,0 +1,30 @@
+<h1>Holis, soy app/views/revisions/index.html.erb</h1>
+<h2>En app/views/repairs/show.html.erb linea 23 hay un listado de reparaciones hecho </h2>
+
+<h2>Revisions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> <%= t 'activerecord.attributes.revision.created_at' %> </th>
+      <th> <%= t 'activerecord.attributes.revision.notes' %> </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revisions.each do |revision| %>
+      <tr>
+        <td> <%= l(revision.created_at, format: "%d-%m-%Y") %> </td>
+        <td> <%= revision.notes %> </div> </td>
+        <td><%= link_to 'Show', revision %></td>
+        <td><%= link_to 'Edit', edit_revision_path(revision) %></td>
+        <td><%= link_to 'Destroy', revision, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Revision', new_repair_revision_path %>

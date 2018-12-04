@@ -68,11 +68,14 @@ es:
       updated: "Artefacto actualizado."
       deleted: "Artefacto eliminado."
   artifacts_form:
+    name_field: "Nombre"
+    model_field: "Modelo"
+    description_field: "Observaciones"
     submit: "Guardar"
     cancel: "Descartar"
   pieces:
     index:
-      title: "Piezas de %{piece}"
+      title: "Piezas de %{artifact} %{model}"
       new: "Crear pieza"
       empty: "No hay piezas para el artefacto"
     actions:
@@ -93,9 +96,9 @@ es:
       created: "Reparación creada"
     show:
       new: "Nueva Revisión"
-      title: "Hola, %{customer}: La reparación de tu '%{artifact}' se encuentra"
-      title_admin: "La reparación: '%{artifact}' de %{customer} se encuentra"
-      repair_successfuly_saved: "Se registró la reparación de %{artifact}"
+      title: "Hola, %{customer}: La reparación de tu '%{artifact} %{model}' se encuentra"
+      title_admin: "La reparación: '%{artifact} %{model}' de %{customer} se encuentra"
+      repair_successfuly_saved: "Se registró la reparación de %{artifact} %{model}"
       customer_code: "%{customer} podrá consultar el estado de la reparación con el siguiente código:"
       customer_code_remainder: "¡Recuerda darle este código al cliente!"
       last_revision_date: "Fecha de última revisión: "
@@ -188,6 +191,7 @@ es:
     errors:
       format: "%{attribute} %{message}"
       messages:
+        record_invalid: "La validación falló: %{errors}"
         invalid_email: "'%{value}' no es un %{attribute} válido"
         invalid_phone: "'%{value}' no es un %{attribute} válido"
         accepted: "debe ser aceptado"

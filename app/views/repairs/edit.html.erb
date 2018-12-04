@@ -9,11 +9,10 @@
   inline-template
 >
   <div v-if="repair">
-    <div class="form-group row">
+    <div class="form-group row ">
       <label class="col-sm-2 col-form-label" for="repair_customer_id"> <%= (t 'repairs_form.customer_field') %> </label>
-      <div class="col-sm-5">
-        <v-select :disabled="true" v-model="repair.customer" :options="<%= @customers %>" @input="clearError('customer')"></v-select>
-        <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
+      <div class="col-sm-6 pt-1">
+        <strong><%= "#{@repair.customer.name} #{@repair.customer.surname}" %></strong>
       </div>
     </div>
 
@@ -23,8 +22,9 @@
         <v-select v-model="repair.artifact" :options="<%= @artifacts %>" @input="clearError('artifact')"></v-select>
         <small v-if="hasError('artifact')" class="font-weight-bold text-danger" v-text="error('artifact')"></small>
       </div>
-      <a class="btn btn-outline-info mb-2 pt-3 pr-3 pl-3" href="<%= new_artifact_path(go_to_repair: true) %>">
+      <a class="btn btn-outline-info mb-2" href="<%= new_artifact_path(go_to_repair: true) %>">
         <i class="fas fa-plug fa-lg"></i>
+        <small class="ml-1">Nuevo Artefacto</small>
       </a>
     </div>
 
@@ -39,13 +39,11 @@
     <div class="text-center mr-5 pr-5 mt-5">
       <button class="btn btn-info mr-2" type="submit" @click="submit">
         <i class="fas fa-save"></i> <span> <%= (t 'repairs_form.submit') %> </span>
-
       </button>
 
-      <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+      <button class="btn btn-outline-secondary" type="button" @click.prevent="goBack">
         <i class="fas fa-arrow-left"></i> <span> <%= (t 'repairs_form.cancel') %> </span>
-
-      </a>
+      </button>
     </div>
   </div>
 </repair-form>

@@ -1,42 +1,48 @@
-<%= form_with(model: artifact, local: true) do |form| %>
-  <% if artifact.errors.any? %>
-    <div class="ml-3">
-      <ul class="text-danger font-weight-bold">
-        <% customer.errors.full_messages.each do |message| %>
-          <li> <%= message %> </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<artifact-form
+  data-artifact="<%= @artifact.to_json %>"
+  data-customer-id="<%= params[:customer_id] || '' %>"
+  data-errors="<%= @artifact.errors.to_json %>"
+  artifacts-url="<%= artifacts_url %>"
+  repairs-url="<%= new_repair_url %>"
+  go-to-repair="<%= params[:go_to_repair] %>"
+  inline-template
+>
+  <div v-if="artifact">
+    <div class="row border mr-3 ml-3 mb-4 pt-4 pb-4">
+      <div class="col-6 container">
+        <div class="form-group">
+          <label class="col-form-label" for="artifact_name"> <%= (t 'artifacts_form.name_field') %> (*) </label>
+          <input v-model="artifact.name" class="form-control" type="text" @input="clearError('name')">
+          <small v-if="hasError('name')" class="font-weight-bold text-danger" v-text="error('name')"></small>
+        </div>
 
-  <div class="row border mr-3 ml-3 mb-4 pt-4 pb-4">
-    <div class="col-6 container">
-      <div class="form-group">
-        <div> <%= form.label :name %> (*) </div>
-        <div> <%= form.text_field :name, class:"form-control" %> </div>
+        <div class="form-group">
+          <label class="col-form-label" for="artifact_model"> <%= (t 'artifacts_form.model_field') %> (*) </label>
+          <input v-model="artifact.model" class="form-control" type="text" @input="clearError('model')">
+          <small v-if="hasError('model')" class="font-weight-bold text-danger" v-text="error('model')"></small>
+        </div>
+
+        <span> (*) Datos obligatorios. </span>
       </div>
 
-      <div class="form-group">
-        <div> <%= form.label :model %> (*) </div>
-        <div> <%= form.text_field :model, class:"form-control" %> </div>
-      </div>
-    </div>
+      <div class="col-6 container">
+        <div class="form-group">
+          <label class="col-form-label" for="artifact_description"> <%= (t 'artifacts_form.description_field') %> </label>
+          <textarea v-model="artifact.description" class="form-control" rows="6" style="resize: none;"></textarea>
+          <small v-if="hasError('description')" class="font-weight-bold text-danger" v-text="error('description')"></small>
+        </div>
 
-    <div class="col-6 container">
-      <div class="form-group">
-        <div> <%= form.label :description %> </div>
-        <div> <%= form.text_area :description, rows:"4", style:"resize: none", class:"form-control" %> </div>
+        <div class="actions" style="text-align: center">
+          <button class="btn btn-info" type="submit" @click="submit">
+            <i class="fas fa-save"></i> <span> <%= (t 'artifacts_form.submit') %> </span>
+          </button>
+
+          <button class="btn btn-outline-secondary" type="button" @click.prevent="goBack">
+            <i class="fas fa-arrow-left"></i> <%= (t 'artifacts_form.cancel') %>
+          </button>
+        </div>
       </div>
     </div>
   </div>
+</artifact-form>
 
-  <div class="actions" style="text-align: center">
-    <button class="btn btn-info" type="submit">
-      <i class="fas fa-save"></i> <span> <%= (t 'artifacts_form.submit') %> </span>
-    </button>
-
-    <a class="btn btn-outline-secondary" href="<%= artifacts_path %>">
-      <i class="fas fa-arrow-left"></i> <%= (t 'artifacts_form.cancel') %>
-    </a>
-  </div>
-<% end %>

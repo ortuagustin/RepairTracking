@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
+    "libphonenumber-js": "^1.6.7",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
     "vue-select": "^2.5.1",

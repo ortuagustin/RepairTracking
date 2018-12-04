@@ -1,8 +1,8 @@
 <h2 class="mt-3"> <%= t 'repairs_form.title' %> </h2> <hr>
 
 <repair-form
+  data-selected-artifact="<%= @selected_artifact || '' %>"
   data-selected-customer="<%= @selected_customer || '' %>"
-  data-selected-artifact="<%= '' %>"
   data-repair="<%= @repair.to_json %>"
   data-errors="<%= @repair.errors.to_json %>"
   repairs-url="<%= repairs_path %>"
@@ -16,8 +16,9 @@
         <small v-if="hasError('customer')" class="font-weight-bold text-danger" v-text="error('customer')"></small>
       </div>
 
-      <a class="btn btn-outline-info mb-2 pt-3" href="<%= new_customer_path(go_to_repair: true) %>">
+      <a class="btn btn-outline-info mb-2" :href="newCustomerPath">
         <i class="fas fa-user-plus fa-lg"></i>
+        <small class="ml-1">Nuevo Cliente</small>
       </a>
     </div>
 
@@ -27,8 +28,9 @@
         <v-select v-model="repair.artifact" :options="<%= @artifacts %>" @input="clearError('artifact')"></v-select>
         <small v-if="hasError('artifact')" class="font-weight-bold text-danger" v-text="error('artifact')"></small>
       </div>
-      <a class="btn btn-outline-info mb-2 pt-3 pr-3 pl-3" href="<%= new_artifact_path(go_to_repair: true) %>">
+      <a class="btn btn-outline-info mb-2" :href="newArtifactPath">
         <i class="fas fa-plug fa-lg"></i>
+        <small class="ml-1">Nuevo Artefacto</small>
       </a>
     </div>
 
@@ -43,13 +45,11 @@
     <div class="text-center mr-5 pr-5 mt-5">
       <button class="btn btn-info mr-2" type="submit" @click="submit">
         <i class="fas fa-save"></i> <span> <%= (t 'repairs_form.submit') %> </span>
-
       </button>
 
-      <a class="btn btn-outline-secondary" href="<%= customers_path %>">
+      <button class="btn btn-outline-secondary" type="button" @click.prevent="goBack">
         <i class="fas fa-arrow-left"></i> <span> <%= (t 'repairs_form.cancel') %> </span>
-
-      </a>
+      </button>
     </div>
   </div>
 </repair-form>

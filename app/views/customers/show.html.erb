@@ -1,8 +1,7 @@
 <h3 class="ml-3 mt-4"><%= (t 'customers.show.title_r') %> <%= link_to @customer.name, edit_customer_path(@customer) %></h3>
 
 <a class="btn btn-outline-info ml-3 mb-4 mt-3" href="<%= new_repair_path(customer_id: @customer) %>">
-  <i class="fas fa-user-plus"></i>
-
+  <i class="fas fa-plus"></i>
   <span class="ml-1"> <%= t 'customers.show.new_r' %> </span>
 </a>
 
@@ -30,7 +29,7 @@
           <td> <div class="text-center"> <%= repair.artifact.name %> </div> </td>
           <td> <div class="text-center" style="color: #ff6c00"><b> PENDIENTE</b> </div> </td>
           <td>
-            <a class="btn btn-outline-warning" href="<%= edit_repair_path(repair) %>">
+            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
               <i class="fas fa-pencil-alt"></i>
             </a>
           </td>

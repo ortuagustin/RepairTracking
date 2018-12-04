@@ -21,26 +21,32 @@ class ArtifactsController < ApplicationController
   end
 
   # POST /artifacts
+  # POST /artifacts.json
   def create
     @artifact = Artifact.new(artifact_params)
 
-    if @artifact.save
-      if params[:go_to_repair].present?
-        redirect_to new_repair_path(artifact_id: @artifact)
+    respond_to do |format|
+      if @artifact.save
+        format.html { redirect_to @artifact, notice: (t 'artifacts.flash.created') }
+        format.json { render json: @artifact, status: :ok }
       else
-        redirect_to @artifact, notice: (t 'artifacts.flash.created')
+        format.html { render :new }
+        format.json { render json: @artifact.errors, status: :unprocessable_entity }
       end
-    else
-      render :new
     end
   end
 
   # PATCH/PUT /artifacts/:id
+  # PATCH/PUT /artifacts/:id.json
   def update
-    if @artifact.update(artifact_params)
-      redirect_to artifacts_path, notice: (t 'artifacts.flash.updated')
-    else
-      render :edit
+    respond_to do |format|
+      if @artifact.update(artifact_params)
+        format.html { redirect_to @artifact, notice: (t 'artifacts.flash.updated') }
+        format.json { render json: @artifact, status: :ok }
+      else
+        format.html { render :new }
+        format.json { render json: @artifact.errors, status: :unprocessable_entity }
+      end
     end
   end
 

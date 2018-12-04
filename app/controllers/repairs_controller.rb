@@ -1,17 +1,31 @@
 class RepairsController < ApplicationController
   before_action :authenticate_user!, except: [:query]
 
-  # GET /repairs/1
-  # GET /repairs/1.json
+  # GET /repairs
+  # GET /repairs
+  def index
+    @repairs = Repair.order(:created_at).page(params[:page])
+  end
+
+  # GET /repairs/:id
+  # GET /repairs/:id.json
   def show
-    @repair = Repair.find_by_code(params[:id])
+    @repair = Repair.find(params[:id])
     @revisions = @repair.revisions.order(:created_at).page(params[:page])
-    render 'show_code'
+    @artifact = @repair.artifact
+  end
+
+  # GET /repairs/:code/created
+  # GET /repairs/:code/created.json
+  def created
+    @repair = Repair.find_by_code(params[:code])
+    @artifact = @repair.artifact
   end
 
   # GET /repairs?code=:code
   def query
     @repair = Repair.find_by_code(params[:code].upcase)
+    @artifact = @repair.artifact
 
     unless @repair.nil?
       @revisions = @repair.revisions.order(:created_at).page(params[:page])
@@ -27,10 +41,10 @@ class RepairsController < ApplicationController
     @selected_customer = { label: "#{@selected_customer.name}, #{@selected_customer.surname}", value: @selected_customer.id }.to_json
 
     @selected_artifact = @repair.artifact
-    @selected_artifact = { label: @selected_artifact.name, value: @selected_artifact.id }.to_json
+    @selected_artifact = { label: "#{@selected_artifact.name}, #{@selected_artifact.model}", value: @selected_artifact.id }.to_json
 
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
-    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: "#{artifact.name}, #{artifact.model}", value: artifact.id } }.to_json
   end
 
   def update
@@ -38,7 +52,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.update(repair_params)
-        format.html { redirect_to artifact_repairs_path(params[:artifact_id]), notice: 'repair was successfully updated.' }
+        format.html { redirect_to artifact_repairs_path(params[:artifact_id]) }
         format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }
@@ -50,13 +64,19 @@ class RepairsController < ApplicationController
   # GET /repairs/new
   def new
     @repair = Repair.new
+
     if params[:customer_id]
       @selected_customer = Customer.find(params[:customer_id])
       @selected_customer = { label: "#{@selected_customer.name}, #{@selected_customer.surname}", value: @selected_customer.id }.to_json
     end
 
+    if params[:artifact_id]
+      @selected_artifact = Artifact.find(params[:artifact_id])
+      @selected_artifact = { label: "#{@selected_artifact.name}, #{@selected_artifact.model}", value: @selected_artifact.id }.to_json
+    end
+
     @customers = Customer.all.collect { |customer| { label: "#{customer.name}, #{customer.surname}", value: customer.id } }.to_json
-    @artifacts = Artifact.all.collect { |artifact| { label: artifact.name, value: artifact.id } }.to_json
+    @artifacts = Artifact.all.collect { |artifact| { label: "#{artifact.name}, #{artifact.model}", value: artifact.id } }.to_json
   end
 
   # POST /repairs
@@ -66,7 +86,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.save
-        format.html { render 'show_code' }
+        format.html { render 'created' }
         format.json { render json: @repair, status: :ok }
       else
         format.html { render :new }
