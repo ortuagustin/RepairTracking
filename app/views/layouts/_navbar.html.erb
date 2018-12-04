@@ -10,6 +10,10 @@
   <% if user_signed_in? %>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
+        <%= link_to 'Reparaciones', repairs_path, class: 'nav-link mt-2' %>
+      </li>
+
+      <li class="nav-item">
         <%= link_to 'Clientes', customers_path, class: 'nav-link mt-2' %>
       </li>
 

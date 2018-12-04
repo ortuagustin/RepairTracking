@@ -129,6 +129,12 @@ es:
     not_found:
       title: "No se encontró la reparación con código: %{code}"
       try_other: "Intentá con otro código"
+    actions:
+      delete:
+        title: "Eliminar Reparacion?"
+        confirm: "Si"
+        text: "Está seguro que desea eliminar la Reparación?"
+        cancel: "No"
   login_form:
     title: "Soy Reparador"
     subtitle: "Inicia sesión para continuar."
@@ -182,11 +188,15 @@ es:
       piece:
         one: "Pieza"
         other: "Piezas"
+      repair:
+        one: "Reparación"
+        other: "Reparaciones"
     attributes:
-      reparacion:
-        codigo: "Código"
-        artefacto: "Artefacto"
-        estado: "Estado"
+      repair:
+        id: "N°"
+        code: "Código"
+        customer: "Cliente"
+        artifact: "Artefacto"
       customer:
         id: "N°"
         name: "Nombre"
