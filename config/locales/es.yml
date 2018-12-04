@@ -197,6 +197,7 @@ es:
         code: "Código"
         customer: "Cliente"
         artifact: "Artefacto"
+        created_at: "Fecha"
       customer:
         id: "N°"
         name: "Nombre"

@@ -10,7 +10,8 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.code' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.customer' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.artifact' %> </div> </th>
-        <th scope="col"> <div class="text-center"> Estado </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.state' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
         <th scope="col" colspan="3"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
               <% end %>
           </td>
 
+          <td> <div class="text-center"> <%= l(repair.created_at, format: "%d-%m-%Y") %> </div> </td>
           <td style="border-right:0; width: 8%;">
             <a class="btn btn-outline-success" title="Ver revisiones" href="<%= repair_revisions_path(repair) %>">
               <i class="fas fa-cogs"></i>
