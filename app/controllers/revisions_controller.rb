@@ -70,6 +70,6 @@ private
   end
 
   def revision_params
-    params.fetch(:revision, {})
+    params.require(:revision).permit(:notes, :repair_id)
   end
 end
