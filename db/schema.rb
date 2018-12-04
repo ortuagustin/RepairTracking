@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_203829) do
+ActiveRecord::Schema.define(version: 2018_12_04_212933) do
 
   create_table "artifacts", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_203829) do
     t.integer "artifact_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "cost", precision: 10, scale: 2, default: "0.0"
     t.index ["artifact_id"], name: "index_pieces_on_artifact_id"
   end
 
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_203829) do
     t.datetime "updated_at", null: false
     t.string "code"
     t.string "state", default: "PENDIENTE"
+    t.decimal "cost", precision: 10, scale: 2, default: "0.0"
     t.index ["artifact_id"], name: "index_repairs_on_artifact_id"
     t.index ["code"], name: "index_repairs_on_code", unique: true
     t.index ["customer_id"], name: "index_repairs_on_customer_id"

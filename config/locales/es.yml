@@ -198,6 +198,8 @@ es:
         customer: "Cliente"
         artifact: "Artefacto"
         created_at: "Fecha"
+        cost: "Costo"
+        state: "Estado"
       customer:
         id: "N°"
         name: "Nombre"
