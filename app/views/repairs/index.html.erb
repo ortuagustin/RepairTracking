@@ -36,8 +36,10 @@
           <td> <div class="text-center"> <%= l(repair.created_at, format: "%d-%m-%Y") %> </div> </td>
 
           <td style="border-right:0; width: 8%;">
-            <a class="btn btn-outline-success" title="Ver revisiones" href="<%= repair_revisions_path(repair) %>">
-              <i class="fas fa-cogs"></i>
+
+          <a class="btn btn-outline-info" title="Ver Revisiones" href="<%= repair_revisions_path(repair) %>">
+              <i class="fas fa-calendar-alt"></i>
+              </span>
             </a>
           </td>
 
