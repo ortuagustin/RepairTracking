@@ -13,7 +13,7 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.state' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.cost' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
-        <th scope="col" colspan="3"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
 
@@ -43,22 +43,10 @@
             </a>
           </td>
 
-          <td style="border-left:0;  border-right:0;width: 8%;">
-            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
+          <td style="border-left:0; width: 8%;">
+           <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
               <i class="fas fa-pencil-alt"></i>
             </a>
-          </td>
-
-          <td style="border-left:0; width: 8%;">
-            <delete-button
-              url="<%= repair_path(repair) %>"
-              title="<%= t 'repairs.actions.delete.title' %>"
-              text="<%= t 'repairs.actions.delete.text', name: repair.artifact.name, model: repair.artifact.model %>"
-              type="<%= 'btn btn-danger' %>"
-              confirm-button="<%= t 'repairs.actions.delete.confirm' %>"
-              cancel-button="<%= t 'repairs.actions.delete.cancel' %>"
-            >
-            </delete-button>
           </td>
         </tr>
       <% end %>
