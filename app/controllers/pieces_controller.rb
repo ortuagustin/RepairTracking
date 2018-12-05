@@ -1,4 +1,9 @@
 class PiecesController < ApplicationController
+  include FiltersModels
+  include SortsModels
+
+  sorts :pieces, :name, :id
+
   before_action :authenticate_user!
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
   before_action :set_artifact
@@ -6,7 +11,7 @@ class PiecesController < ApplicationController
   # GET /pieces
   # GET /pieces.json
   def index
-    @pieces = @artifact.pieces.order(:name).page(params[:page])
+    @pieces = @artifact.pieces.search(filter).order(pieces_sort_params).page(params[:page])
   end
 
   # GET /pieces/new
