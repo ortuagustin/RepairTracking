@@ -20,6 +20,7 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.reparacion.estado' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.cost' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.revisions' %> </div> </th>
         <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
@@ -28,7 +29,7 @@
       <% @repairs.each do |repair| %>
         <tr align="center">
           <td> <div class="text-center"> <%= repair.code %> </div> </td>
-          <td> <div class="text-center"> <%= "#{repair.artifact.name} #{repair.artifact.model}" %> </div> </td>
+          <td> <div class="text-center"> <%= "#{repair.artifact.name} - #{repair.artifact.model}" %> </div> </td>
           <td> <% if repair.state == 'PENDIENTE' %>
                 <div class="text-center font-weight-bold" style="color: #ff6c00;"> <%= repair.state %> </div>
               <% else %>
@@ -37,18 +38,23 @@
 
                <td> <div class="text-center"> <%= number_to_currency(repair.cost) %> </div> </td>
           <td> <div class="text-center"> <%= l(repair.created_at, format: "%d-%m-%Y") %> </div> </td>       
-          <td style="border-right:0; width: 8%;">
+          <td>
             <a class="btn btn-outline-info" title="Revisiones" href="<%= repair_revisions_path(repair) %>">
               <i class="fas fa-calendar-alt"></i>
               </span>
             </a>
           </td>
+          <% if repair.state == "PENDIENTE" %>
+            <td style="border-right:0;">
+            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+            </td>
 
-          <td style="border-left:0; width: 8%;">
-          <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
-              <i class="fas fa-pencil-alt"></i>
-            </a>
-          </td>
+            <td style="border-left: 0">
+                <finish-repair-button title="Finalizar" url="<%= finish_repair_path(repair) %>"></finish-repair-button>
+            </td>  
+          <% end %>
         </tr>
       <% end %>
     </tbody>
