@@ -26,10 +26,25 @@ class Repair < ApplicationRecord
     super.upcase
   end
 
+  def finish
+    change_state("FINALIZADO")
+  end
+
+  def pending
+    change_state("PENDIENTE")
+  end
+
   def self.searchable_fields
     %w[customer_id artifact_id]
   end
 private
+  def change_state(new_state)
+    return if self.state == new_state
+
+    self.state = new_state
+    self.save!
+  end
+
   def set_pending_state
     self.state ||= 'PENDIENTE'
   end

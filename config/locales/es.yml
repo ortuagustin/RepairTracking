@@ -115,7 +115,7 @@ es:
       new: "Crear revisión"
       empty: "No hay revisiones cargadas para la reparación"
     actions:
-      finalize: "Guardar y finalizar reparación"
+      finalize: "Finalizar reparación"
       delete:
         title: "Eliminar revisión?"
         text: "Está seguro que desea eliminar la revisión?"

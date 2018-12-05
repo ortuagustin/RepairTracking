@@ -19,6 +19,10 @@ class RevisionsController < ApplicationController
   def create
     @revision = Revision.new(revision_params)
 
+    if (params[:finish].present?) && params[:finish]
+      @revision.repair.finish
+    end
+
     respond_to do |format|
       if @revision.save
         format.html { redirect_to (repair_revisions_path(repair_id: @revision.repair_id)), notice: (t 'revisions.flash.created')}

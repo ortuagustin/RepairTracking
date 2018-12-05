@@ -49,10 +49,7 @@ class RepairsController < ApplicationController
   # POST /:repair_id/finish
   # POST /:repair_id/finish.json
   def finish
-    return if @repair.state == "FINALIZADO"
-
-    @repair.state = "FINALIZADO"
-    @repair.save!
+    @repair.finish
   end
 
   def edit
