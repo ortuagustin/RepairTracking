@@ -16,7 +16,7 @@
   <div id="app">
     <%= render 'layouts/navbar' %>
 
-    <div class="container">
+    <div class="<%= content_for?(:container_class) ? yield(:container_class) : "container" %>">
       <% if notice.present? %>
         <p class="notice alert alert-success">
           <%= notice %>

@@ -1,3 +1,5 @@
+<%= content_for :container_class, "container-fluid px-5" %>
+
 <h1 class="mt-3 mb-4 text-center">Últimas reparaciones</h1>
 
 <div class="pt-3">
@@ -11,8 +13,10 @@
     </div>
 
     <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
 
-    <div class="col">
+    <div class="col pr-4">
       <form class="form-inline" action="<%= query_repairs_path %>">
         <div class="form-group">
           <input class="form-control" type="text" name="code" id="code" placeholder="Buscar por código" required>

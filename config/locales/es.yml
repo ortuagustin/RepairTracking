@@ -239,7 +239,8 @@ es:
         name: "Nombre"
         description: "Descripción"
       revision:
-        created_at: "Fecha revisión"
+        id: "N°"
+        created_at: "Fecha"
         notes: "Notas"
         notes_form: "Ingrese detalle de la revisión"
       task:

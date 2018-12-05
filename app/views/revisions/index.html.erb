@@ -6,7 +6,7 @@
 </a>
 
 <finish-repair-button class="ml-3 mb-5" url="<%= finish_repair_path(@repair) %>">
-  <span class="ml-1"> <%= t 'revisions.actions.finalize' %> </span>
+  <span class="ml-1"> Finalizar reparación </span>
 </finish-repair-button>
 
 <% if @revisions.empty? %>
@@ -18,10 +18,10 @@
   <table class="table table-bordered">
     <thead>
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.id' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
+        <th scope="col" width="8%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.id' %> </div> </th>
+        <th scope="col" width="15%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
-        <th scope="col" colspan="4"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
 
