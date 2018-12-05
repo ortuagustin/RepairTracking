@@ -222,6 +222,7 @@ es:
         created_at: "Fecha"
         cost: "Costo"
         state: "Estado"
+        revisions: "Revisiones"
       customer:
         id: "N°"
         name: "Nombre"
