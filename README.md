@@ -80,7 +80,3 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
 7. Ejecución: Correr el servidor: `rails s` y acceder a la [aplicación](http://localhost:3000)
 
 8. Para correr los tests: `rails t`
-
-### Heroku
-
-Ésta aplicación fue desplegada a la plataforma [Heroku](http://heroku.com), podés verla siguiendo [este link](https://repair-tracking.herokuapp.com)
