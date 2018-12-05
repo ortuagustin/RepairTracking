@@ -1,7 +1,7 @@
 class RevisionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_repair, only: [:index, :new]
-  before_action :set_revision, only: [:edit, :update, :destroy]
+  before_action :set_revision, only: [:destroy]
 
   # GET /repairs/:repair_id/revisions
   # GET /repairs/:repair_id/revisions.json
@@ -12,10 +12,6 @@ class RevisionsController < ApplicationController
   # GET /repairs/:repair_id/revisions/new
   def new
     @revision = Revision.new(repair: @repair)
-  end
-
-  # GET /revisions/:id/edit
-  def edit
   end
 
   # POST /:repair_id/revisions
@@ -29,20 +25,6 @@ class RevisionsController < ApplicationController
         format.json { render json: @revision }
       else
         format.html { render :new }
-        format.json { render json: @revision.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /revisions/:id
-  # PATCH/PUT /revisions/:id.json
-  def update
-    respond_to do |format|
-      if @revision.update(revision_params)
-        format.html { redirect_to repair_revisions_path(repair_id: @revision.repair_id), notice: (t 'revisions.flash.updated') }
-        format.json { render :show, status: :ok, location: @revision }
-      else
-        format.html { render :edit }
         format.json { render json: @revision.errors, status: :unprocessable_entity }
       end
     end
