@@ -25,6 +25,10 @@ class Repair < ApplicationRecord
   def state
     super.upcase
   end
+
+  def self.searchable_fields
+    %w[customer_id artifact_id]
+  end
 private
   def set_pending_state
     self.state ||= 'PENDIENTE'
