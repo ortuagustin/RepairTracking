@@ -55,7 +55,7 @@ private
   end
 
   def generate_repair_code
-    self.code = "#{customer.initials}#{id}"
+    self.code = "#{customer.initials.upcase}#{id}"
     self.save!
   end
 
