@@ -2,6 +2,7 @@
 
 <h1 class="mt-3 mb-4 text-center">Últimas reparaciones</h1>
 
+
 <div class="pt-3">
   <div class="row">
     <div class="col">
@@ -11,6 +12,8 @@
         <repair-filter-button url="<%= repairs_url(state_filter: "FINALIZADO") %>">Finalizadas</repair-filter-button>
       </div>
     </div>
+
+
 
     <div class="col"></div>
     <div class="col"></div>
@@ -28,6 +31,11 @@
       </form>
     </div>
   </div>
+  <hr>
+     <a class="btn btn-outline-info mt-2" href="<%= new_repair_path(customer_id: @customer) %>">
+  <i class="fas fa-plus"></i>
+  <span class="ml-1"> <%= t 'customers.show.new_r' %> </span>
+</a>
 </div>
 
 <% if @repairs.empty? %>
@@ -36,7 +44,7 @@
     <p class="mt-3"><%= t 'repairs.index.empty' %></p>
   </div>
 <% else %>
-  <table class="mt-5 table table-bordered">
+  <table class="mt-4 table table-bordered">
     <thead>
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
         <th scope="col"> <div class="text-center"> <%= sort_repairs_by_code %> </div> </th>
@@ -91,3 +99,6 @@
 
   <%= paginate @repairs, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md justify-content-center' %>
 <% end %>
+
+  
+
