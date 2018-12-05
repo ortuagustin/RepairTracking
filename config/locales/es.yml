@@ -109,7 +109,6 @@ es:
   tasks_form:
     submit: "Guardar"
     cancel: "Descartar"
-
   revisions:
     index:
       title: "Revisiones de %{coderepair}"
@@ -129,8 +128,9 @@ es:
     submit: "Guardar"
     cancel: "Descartar"
     finalize: "Guardar y finalizar reparación"
-
   repairs:
+    index:
+      empty: "No hay reparaciones pendientes!"
     flash:
       created: "Reparación creada"
     show:
