@@ -1,3 +1,24 @@
-<h2 class="ml-3 mt-4 mb-3">Crear revisión</h2>
+<h2 class="ml-3 mt-4 mb-3">Nueva revisión</h2>
 
-<%= render 'form', revision: @revision %>
+<%= form_with(model: [@repair, @revision], local: true) do |form| %>
+  <%= form.hidden_field :repair_id %>
+
+  <div class="row mr-3 ml-3 mb-4 pt-4">
+    <div class="container">
+      <div class="form-group">
+        <div ><%= form.label :notes_form %> </div>
+        <div ><%= form.text_area :notes, required: true, rows:"4", style:"resize:none", class:"form-control" %> </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-info" type="submit">
+      <i class="fas fa-save"></i> <span> <%= t 'revisions_form.submit' %> </span>
+    </button>
+
+    <button class="btn btn-outline-secondary" type="button" @click.prevent="goBack">
+      <i class="fas fa-arrow-left"></i> <%= t 'customers_form.cancel' %>
+    </button>
+  </div>
+<% end %>

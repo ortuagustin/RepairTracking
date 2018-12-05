@@ -8,6 +8,8 @@ import RepairForm from '../RepairForm';
 import CustomerForm from '../CustomerForm';
 import ArtifactForm from '../ArtifactForm';
 import SendMailButton from '../SendMailButton';
+import FinishRepairButton from '../FinishRepairButton';
+import RepairFilterButton from '../RepairFilterButton';
 
 Vue.use(TurbolinksAdapter)
 Vue.component('v-select', vSelect);
@@ -31,6 +33,14 @@ document.addEventListener('turbolinks:load', () => {
 
   new Vue({
     el: "#app",
-    components: { DeleteButton, LogoutButton, RepairForm, CustomerForm, ArtifactForm, SendMailButton },
+    components: {
+      DeleteButton,
+      LogoutButton,
+      RepairForm,
+      CustomerForm,
+      ArtifactForm,
+      SendMailButton,
+      FinishRepairButton,
+      RepairFilterButton, },
   })
 })

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     resources :repairs, except: [:delete] do
       resources :revisions, shallow: true, except: [:show, :edit, :update]
+      post 'finish', on: :member
       get 'query', on: :collection
     end
   # end

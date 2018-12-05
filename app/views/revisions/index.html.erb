@@ -2,8 +2,12 @@
 
 <a class="btn btn-outline-info mb-5" href="<%= new_repair_revision_path %>">
   <i class="fas fa-plus fa-lg"></i>
-  <span class="ml-1"><%= t 'revisions.index.new' %></span>
+  <span class="ml-1"> <%= t 'revisions.index.new' %> </span>
 </a>
+
+<finish-repair-button class="ml-3 mb-5" url="<%= finish_repair_path(@repair) %>">
+  <span class="ml-1"> <%= t 'revisions.actions.finalize' %> </span>
+</finish-repair-button>
 
 <% if @revisions.empty? %>
   <div class="text-center text-muted">

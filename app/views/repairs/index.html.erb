@@ -1,10 +1,17 @@
-<h1 class="mt-3 mb-4 text-center">Últimas reparaciones pendientes</h1>
+<h1 class="mt-3 mb-4 text-center">Últimas reparaciones</h1>
 
 <div class="pt-3">
   <div class="row">
+    <div class="col">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <repair-filter-button url="<%= repairs_url %>">Todas</repair-filter-button>
+        <repair-filter-button url="<%= repairs_url(state_filter: "PENDIENTE") %>">Pendientes</repair-filter-button>
+        <repair-filter-button url="<%= repairs_url(state_filter: "FINALIZADO") %>">Finalizadas</repair-filter-button>
+      </div>
+    </div>
+
     <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
+
     <div class="col">
       <form class="form-inline" action="<%= query_repairs_path %>">
         <div class="form-group">
@@ -34,7 +41,7 @@
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.state' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.cost' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
-        <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <th scope="col" colspan="3"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
 
@@ -56,19 +63,23 @@
           <td> <div class="text-center"> <%= number_to_currency(repair.cost) %> </div> </td>
           <td> <div class="text-center"> <%= l(repair.created_at, format: "%d-%m-%Y") %> </div> </td>
 
-          <td style="border-right:0; width: 8%;">
-
-          <a class="btn btn-outline-info" title="Ver Revisiones" href="<%= repair_revisions_path(repair) %>">
+          <td style="width: 8%;">
+            <a class="btn btn-outline-info" title="Ver Revisiones" href="<%= repair_revisions_path(repair) %>">
               <i class="fas fa-calendar-alt"></i>
-              </span>
             </a>
           </td>
 
-          <td style="border-left:0; width: 8%;">
-           <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
+          <td style="width: 8%;">
+            <a class="btn btn-outline-warning" title="Editar" href="<%= edit_repair_path(repair) %>">
               <i class="fas fa-pencil-alt"></i>
             </a>
           </td>
+
+          <td style="width: 8%;">
+            <% if repair.state == "PENDIENTE" %>
+              <finish-repair-button title="Finalizar" url="<%= finish_repair_path(repair) %>"></finish-repair-button>
+            <% end %>
+          </>
         </tr>
       <% end %>
     </tbody>

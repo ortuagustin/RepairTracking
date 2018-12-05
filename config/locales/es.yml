@@ -115,6 +115,7 @@ es:
       new: "Crear revisión"
       empty: "No hay revisiones cargadas para la reparación"
     actions:
+      finalize: "Guardar y finalizar reparación"
       delete:
         title: "Eliminar revisión?"
         text: "Está seguro que desea eliminar la revisión?"
@@ -127,10 +128,9 @@ es:
   revisions_form:
     submit: "Guardar"
     cancel: "Descartar"
-    finalize: "Guardar y finalizar reparación"
   repairs:
     index:
-      empty: "No hay reparaciones pendientes!"
+      empty: "No hay reparaciones para mostrar!"
     flash:
       created: "Reparación creada"
     show:
