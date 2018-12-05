@@ -1,4 +1,9 @@
 class TasksController < ApplicationController
+  include FiltersModels
+  include SortsModels
+
+  sorts :tasks, :name, :description, :cost, :id
+
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_artifact, except: [:destroy, :edit, :update]
@@ -6,7 +11,7 @@ class TasksController < ApplicationController
   # GET /artifacts/:artifact_id/tasks
   # GET /artifacts/:artifact_id/tasks.json
   def index
-    @tasks = @artifact.tasks.order(:name).page(params[:page])
+    @tasks = @artifact.tasks.search(filter).order(tasks_sort_params).page(params[:page])
   end
 
   # GET /tasks/:id
