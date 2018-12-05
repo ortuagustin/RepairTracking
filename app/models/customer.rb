@@ -1,4 +1,6 @@
 class Customer < ApplicationRecord
+  include Searchable
+
   has_many :repairs, dependent: :delete_all
 
   validates :name, :surname, :email, :phone, presence: true
@@ -9,5 +11,9 @@ class Customer < ApplicationRecord
     name_initials = name.split(' ').collect { |s| s[0] }.join('')
     surname_initials = surname.split(' ').collect { |s| s[0] }.join('')
     name_initials + surname_initials
+  end
+
+  def self.searchable_fields
+    %w[name surname email phone]
   end
 end
