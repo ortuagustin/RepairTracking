@@ -1,5 +1,5 @@
 <h1 class="mt-3 mb-4"><%= (t 'revisions.index.title', coderepair: @repair.code) %></h1>
-
+<% if @repair.state == "PENDIENTE" %>
 <a class="btn btn-outline-info mb-5" href="<%= new_repair_revision_path %>">
   <i class="fas fa-plus fa-lg"></i>
   <span class="ml-1"> <%= t 'revisions.index.new' %> </span>
@@ -8,7 +8,7 @@
 <finish-repair-button class="ml-3 mb-5" url="<%= finish_repair_path(@repair) %>">
   <span class="ml-1"> Finalizar reparación </span>
 </finish-repair-button>
-
+<% end %>
 <% if @revisions.empty? %>
   <div class="text-center text-muted">
     <i class="fas fa-calendar-alt fa-5x mt-5"></i>
@@ -21,7 +21,9 @@
         <th scope="col" width="8%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.id' %> </div> </th>
         <th scope="col" width="15%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <% if @repair.state == "PENDIENTE" %>
+          <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <% end %>
       </tr>
     </thead>
 
@@ -32,7 +34,7 @@
 
           <td> <div class="text-center"> <%= l(revision.created_at, format: "%d-%m-%Y") %> </div> </td>
           <td> <div class="text-center"> <%= revision.notes %> </div> </td>
-
+          <% if @repair.state == "PENDIENTE" %>
           <td style="border-left:0; width: 8%;">
             <delete-button
               url="<%= revision_path(revision) %>"
@@ -44,6 +46,7 @@
             >
             </delete-button>
           </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

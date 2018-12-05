@@ -25,10 +25,12 @@
 
 <% if @revisions.empty? %>
   <% if user_signed_in? %>
+    <% if @repair.state == "PENDIENTE" %>
     <a class="btn btn-outline-info mt-2" href="<%= new_repair_revision_path(@repair) %>">
       <i class="fas fa-plus"></i>
       <span class="ml-1"> <%= t 'repairs.show.new' %> </span>
     </a>
+    <% end %>
   <% end %>
 
   <div class="text-center text-muted mt-5">
@@ -37,10 +39,12 @@
   </div>
 <% else %>
   <% if user_signed_in? %>
-    <a class="btn btn-outline-info" href="<%= new_repair_revision_path(@repair) %>">
-      <i class="fas fa-plus"></i>
-      <span class="ml-1"> <%= t 'repairs.show.new' %> </span>
-    </a>
+    <% if @repair.state == "PENDIENTE" %>
+      <a class="btn btn-outline-info" href="<%= new_repair_revision_path(@repair) %>">
+        <i class="fas fa-plus"></i>
+        <span class="ml-1"> <%= t 'repairs.show.new' %> </span>
+      </a>
+    <% end %>
   <% end %>
 
   <table class="table table-bordered mt-3">
@@ -49,7 +53,9 @@
         <th scope="col" style="width: 25%"> <div class="text-center"> <%= t 'activerecord.attributes.revision.created_at' %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.revision.notes' %> </div> </th>
         <% if user_signed_in? %>
-          <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+          <% if @repair.state == "PENDIENTE" %>
+            <th scope="col"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+          <% end %>
         <% end %>
       </tr>
     </thead>
@@ -61,6 +67,7 @@
           <td> <%= revision.notes %> </div> </td>
 
           <% if user_signed_in? %>
+          <% if @repair.state == "PENDIENTE" %>
             <td style="border-left:0; width: 8%;">
               <delete-button
                 url="<%= revision_path(revision) %>"
@@ -72,6 +79,7 @@
               >
               </delete-button>
             </td>
+            <% end %>
           <% end %>
         </tr>
       <% end %>
