@@ -1,10 +1,15 @@
 class ArtifactsController < ApplicationController
+  include FiltersModels
+  include SortsModels
+
+  sorts :artifacts, :name, :model, :id
+
   before_action :authenticate_user!
   before_action :set_artifact, only: [:show, :edit, :update, :destroy]
 
   # GET /artifacts
   def index
-    @artifacts = Artifact.order(:name, :model).page(params[:page])
+    @artifacts = Artifact.search(filter).order(artifacts_sort_params).page(params[:page])
   end
 
   # GET /artifacts/:id

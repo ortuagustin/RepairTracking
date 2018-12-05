@@ -1,4 +1,9 @@
 class RepairsController < ApplicationController
+  include SortsModels
+  include FiltersModels
+
+  sorts :repairs, :created_at, :code, :customer_id, :artifact_id, :state, :cost
+
   before_action :authenticate_user!, except: [:query]
   before_action :set_repair, only: [:show, :finish, :edit, :update]
 
@@ -6,9 +11,9 @@ class RepairsController < ApplicationController
   # GET /repairs
   def index
     unless state_filter == ""
-      @repairs = Repair.where(state: state_filter).order(:created_at)
+      @repairs = Repair.where(state: state_filter).order(repairs_sort_params)
     else
-      @repairs = Repair.order(:created_at)
+      @repairs = Repair.order(repairs_sort_params)
     end
 
     @repairs = @repairs.page(params[:page])

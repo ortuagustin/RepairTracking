@@ -39,12 +39,12 @@
   <table class="mt-5 table table-bordered">
     <thead>
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.code' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.customer' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.artifact' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.state' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.cost' %> </div> </th>
-        <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.created_at' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_code %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_customer_id %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_artifact_id %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_state %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_cost %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_repairs_by_created_at %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= t 'activerecord.attributes.repair.revisions' %> </div> </th>
         <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
@@ -82,7 +82,7 @@
 
             <td style="border-left: 0">
                 <finish-repair-button title="Finalizar" url="<%= finish_repair_path(repair) %>"></finish-repair-button>
-            </td>  
+            </td>
           <% end %>
         </tr>
       <% end %>
