@@ -131,7 +131,7 @@ module SortsModels
 
         define_method :icon do |field|
           icon_arrow = direction(field) == "asc" ? "down" : "up"
-          view_context.icon 'fas', "sort-alpha-#{icon_arrow}"
+          view_context.tag.i class: "fas fa-sort-alpha-#{icon_arrow}"
         end
       end
 
