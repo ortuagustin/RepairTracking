@@ -68,7 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.5"
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
-gem 'font-awesome-sass', '~> 5.5.0'
 gem 'validates'
 gem "faker"
 gem "kaminari"
