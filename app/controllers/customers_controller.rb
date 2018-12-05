@@ -1,10 +1,15 @@
 class CustomersController < ApplicationController
+  include FiltersModels
+  include SortsModels
+
+  sorts :customers, :name, :surname, :phone, :email, :id
+
   before_action :authenticate_user!
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
   def index
-    @customers = Customer.order(:surname).page(params[:page])
+    @customers = Customer.order(customers_sort_params).page(params[:page])
   end
 
   # GET /customers/:id
