@@ -36,9 +36,9 @@ class RepairsController < ApplicationController
   # GET /repairs?code=:code
   def query
     @repair = Repair.find_by_code(params[:code].upcase)
-    @artifact = @repair.artifact
 
     unless @repair.nil?
+      @artifact = @repair.artifact
       @revisions = @repair.revisions.order(:created_at).page(params[:page])
       render 'show'
     else
