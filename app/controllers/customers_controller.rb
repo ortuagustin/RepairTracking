@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 
   # GET /customers
   def index
-    @customers = Customer.order(customers_sort_params).page(params[:page])
+    @customers = Customer.search(filter).order(customers_sort_params).page(params[:page])
   end
 
   # GET /customers/:id

@@ -10,6 +10,7 @@ import ArtifactForm from '../ArtifactForm';
 import SendMailButton from '../SendMailButton';
 import FinishRepairButton from '../FinishRepairButton';
 import RepairFilterButton from '../RepairFilterButton';
+import ClearFilterButton from '../ClearFilterButton';
 
 Vue.use(TurbolinksAdapter)
 Vue.component('v-select', vSelect);
@@ -41,6 +42,8 @@ document.addEventListener('turbolinks:load', () => {
       ArtifactForm,
       SendMailButton,
       FinishRepairButton,
-      RepairFilterButton, },
+      RepairFilterButton,
+      ClearFilterButton,
+    },
   })
 })
