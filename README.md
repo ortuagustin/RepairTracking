@@ -1,7 +1,14 @@
 # RepairTracking
 ## Métodos Ágiles para Aplicaciones Web
 
-Este proyecto consiste en una aplicación web para gestionar reparaciones de diferentes tipos de artefactos/máquinas, los cuales pertenecen a los distintos clietnes que se van registrando en el sistema. A su vez, los clientes pueden hacer un seguimiento del estado de la reparación online, a través de un código que identifica a su artefacto/máquina.
+El proyecto consiste en una aplicación web para gestionar reparaciones de diferentes tipos de artefactos/máquinas. La aplicación se utiliza a través de dos roles: Reparador (el cual posee una cuenta registrada) y Cliente. 
+
+Un reparador, una vez logueado, tendrá la posibilidad de crear una nueva reparación la cual estará asociada a un cliente y a un artefacto. Al crearse, la aplicación genera un código único asociado a la misma.
+
+El cliente podrá consultar el estado de su reparación en base al código único, teniendo la posibilidad de estar informado sobre las diferentes revisiones realizadas al artefacto y cuándo estará listo para ser retirado. 
+
+El reparador podrá administrar tanto a los clientes como a los artefactos, incluyendo sus piezas y tareas de reparación a realizar sobre el mismo.
+
 
 ### Alumnos
 
@@ -16,7 +23,7 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
 * El proyecto se dessarrolló usando [**Ruby**](https://www.ruby-lang.org) 2.5.3p105 (2018-10-18 revision 65156)
 * Se utilizó [**Ruby on Rails**](https://rubyonrails.org) 5.2.1 como framework de desarrollo
 * Se utilizó [VueJS](https://vuejs.org) como framework de desarrollo para el frontend
-* La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org) para desarrollo; [**PostgreSQL**](https://www.postgresql.org) para producción
+* La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org) 
 * **Dependencias**: Como en la mayoria de los proyectos Rails, son gestionadas usando [Bundler](https://github.com/bundler/bundler). Las mas destacadas son:
   - [Rails](https://github.com/rails/rails)
   - [Bootstrap 4.1](https://getbootstrap.com)
@@ -40,25 +47,17 @@ Este proyecto consiste en una aplicación web para gestionar reparaciones de dif
   bundle
 ```
 
-> En desarrollo no es necesario instalar **postgres**: `bundle install --without production`
-
 3. Ejecutar yarn para instalar las dependencias de JavaScript:
 
 ```bash
   yarn install
 ```
 
-4. Es posible que se necesiten dependencias adicionales para las bases de datos; en sistemas linux, se debe
-  - SQLite (desarrollo y tests):
+4. Es posible que se necesiten dependencias adicionales para las bases de datos; en sistemas Linux, ejecutar:
 
   ```bash
     apt install sqlite3
     apt install libsqlite3-dev
-  ```
-  - PostgreSQL (producción):
-
-  ```bash
-    apt install libpq-dev
   ```
 
 5. Configurar la base de datos:
