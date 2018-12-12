@@ -22,6 +22,7 @@ El reparador podrá administrar tanto a los clientes como a los artefactos, incl
 
 * El proyecto se dessarrolló usando [**Ruby**](https://www.ruby-lang.org) 2.5.3p105 (2018-10-18 revision 65156)
 * Se utilizó [**Ruby on Rails**](https://rubyonrails.org) 5.2.1 como framework de desarrollo
+* Es necesario tener instalado [**NodeJS**](https://nodejs.org). Se utilizó el gestor de paquetes [**Yarn**](https://yarnpkg.com)
 * Se utilizó [VueJS](https://vuejs.org) como framework de desarrollo para el frontend
 * La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org) 
 * **Dependencias**: Como en la mayoria de los proyectos Rails, son gestionadas usando [Bundler](https://github.com/bundler/bundler). Las mas destacadas son:
