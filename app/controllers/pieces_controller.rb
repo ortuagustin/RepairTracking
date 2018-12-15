@@ -2,7 +2,7 @@ class PiecesController < ApplicationController
   include FiltersModels
   include SortsModels
 
-  sorts :pieces, :name, :id
+  sorts :pieces, :name, :cost, :id
 
   before_action :authenticate_user!
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
@@ -70,6 +70,6 @@ private
   end
 
   def piece_params
-    params.require(:piece).permit(:name, :description, :artifact_id)
+    params.require(:piece).permit(:name, :description, :cost, :artifact_id)
   end
 end

@@ -40,7 +40,8 @@
       <tr style="background-color:rgba(128, 128, 128, 0.3)">
         <th scope="col"> <div class="text-center"> <%= sort_pieces_by_id %> </div> </th>
         <th scope="col"> <div class="text-center"> <%= sort_pieces_by_name %> </div> </th>
-        <th scope="col" colspan="4"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
+        <th scope="col"> <div class="text-center"> <%= sort_pieces_by_cost %> </div> </th>
+        <th scope="col" colspan="2"> <div class="text-center"> <%= t 'view.index.actions' %> </div> </th>
       </tr>
     </thead>
 
@@ -49,6 +50,7 @@
         <tr align="center">
           <td> <div class="text-center"> <%= piece.id %> </div> </td>
           <td> <div class="text-center"> <%= link_to piece.name, edit_artifact_piece_path(artifact_id: piece.artifact_id, id: piece.id) %> </div> </td>
+          <td> <div class="text-center"> <%= number_to_currency(piece.cost) %> </div> </td>
 
           <td style="border-left:0;  border-right:0;width: 8%;">
             <a class="btn btn-outline-warning" title="Editar" href="<%= edit_artifact_piece_path(artifact_id: piece.artifact_id, id: piece.id) %>">

@@ -241,6 +241,7 @@ es:
         id: "N°"
         name: "Nombre"
         description: "Descripción"
+        cost: "Costo en pesos ($)"
       revision:
         id: "N°"
         created_at: "Fecha"
