@@ -1,11 +1,11 @@
 # RepairTracking
 ## Métodos Ágiles para Aplicaciones Web
 
-El proyecto consiste en una aplicación web para gestionar reparaciones de diferentes tipos de artefactos/máquinas. La aplicación se utiliza a través de dos roles: Reparador (el cual posee una cuenta registrada) y Cliente. 
+El proyecto consiste en una aplicación web para gestionar reparaciones de diferentes tipos de artefactos/máquinas. La aplicación se utiliza a través de dos roles: Reparador (el cual posee una cuenta registrada) y Cliente.
 
 Un reparador, una vez logueado, tendrá la posibilidad de crear una nueva reparación la cual estará asociada a un cliente y a un artefacto. Al crearse, la aplicación genera un código único asociado a la misma.
 
-El cliente podrá consultar el estado de su reparación en base al código único, teniendo la posibilidad de estar informado sobre las diferentes revisiones realizadas al artefacto y cuándo estará listo para ser retirado. 
+El cliente podrá consultar el estado de su reparación en base al código único, teniendo la posibilidad de estar informado sobre las diferentes revisiones realizadas al artefacto y cuándo estará listo para ser retirado.
 
 El reparador podrá administrar tanto a los clientes como a los artefactos, incluyendo sus piezas y tareas de reparación a realizar sobre el mismo.
 
@@ -16,6 +16,43 @@ El reparador podrá administrar tanto a los clientes como a los artefactos, incl
 * Calabrese, Julieta
 * Muñoz, Rocío
 
+# Corriendo la aplicacón
+
+La aplicación se puede correr como una aplicacion Ruby on Rails cualquiera, o bien, usando docker, lo cual simplifica la instalación y configuracion de la infraestructura necesaria
+
+## Docker
+
+> Es necesario tener docker y docker-compose instalados en el sistema
+
+1. Clonar el repositorio:
+
+```bash
+  git clone https://github.com/ortuagustin/RepairTracking.git
+  cd RepairTracking
+```
+
+2. Construir y ejecutar el contenedor:
+
+```bash
+  docker-compose up
+```
+
+3. Inicializar la base de datos con datos de prueba (ejecutar en otra terminal):
+
+```bash
+  docker-compose exec web rails db:setup
+```
+
+4. Ejecución: Correr el servidor: `rails s` y acceder a la [aplicación](http://localhost:3000). Ingresar con el usuario `test@test.com` y password `1234`
+
+5. Para finalizar:
+
+```bash
+  docker-compose down
+```
+
+## Rails tradicional
+
 ### Preparando el ambiente:
 
 #### Ambiente Ruby
@@ -24,7 +61,7 @@ El reparador podrá administrar tanto a los clientes como a los artefactos, incl
 * Se utilizó [**Ruby on Rails**](https://rubyonrails.org) 5.2.1 como framework de desarrollo
 * Es necesario tener instalado [**NodeJS**](https://nodejs.org). Se utilizó el gestor de paquetes [**Yarn**](https://yarnpkg.com)
 * Se utilizó [VueJS](https://vuejs.org) como framework de desarrollo para el frontend
-* La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org) 
+* La base de datos utiliazda es [**SQLite3**](https://www.sqlite.org)
 * **Dependencias**: Como en la mayoria de los proyectos Rails, son gestionadas usando [Bundler](https://github.com/bundler/bundler). Las mas destacadas son:
   - [Rails](https://github.com/rails/rails)
   - [Bootstrap 4.1](https://getbootstrap.com)

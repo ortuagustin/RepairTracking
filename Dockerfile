@@ -7,7 +7,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  && apt-get install -y yarn
 RUN git clone https://github.com/ortuagustin/RepairTracking.git
 WORKDIR /RepairTracking
-RUN yarn install && bundle install && rails db:migrate && rails db:seed && ./bin/webpack
+RUN yarn install && bundle install
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
